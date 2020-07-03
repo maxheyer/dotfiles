@@ -35,10 +35,12 @@ if dein#load_state('/Users/maxheyer/.cache/dein')
   call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
   call dein#add('jszakmeister/vim-togglecursor')
   call dein#add('tpope/vim-fugitive')
+  call dein#add('ap/vim-buftabline')
 
-  " Colors
+  " Themes
   call dein#add('duckwork/low.vim')
   call dein#add('zefei/simple-dark')
+  call dein#add('vim-airline/vim-airline')
 
   " NERDTree
   call dein#add('scrooloose/nerdtree')
@@ -69,6 +71,10 @@ endif
 
 colorscheme simple-dark
 
+" General
+nnoremap gn :bnext<CR>
+nnoremap gN :bprev<CR>
+
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
@@ -94,3 +100,6 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
