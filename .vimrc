@@ -7,6 +7,10 @@ set noswapfile
 set nobackup
 set hidden
 set number
+:set expandtab
+:set tabstop=4
+:retab
+
 
 " Map terminal exit
 :tnoremap <Esc> <C-\><C-n>
