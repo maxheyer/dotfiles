@@ -42,9 +42,8 @@ if dein#load_state('/Users/maxheyer/.cache/dein')
   call dein#add('ap/vim-buftabline')
 
   " Themes
-  call dein#add('duckwork/low.vim')
-  call dein#add('zefei/simple-dark')
   call dein#add('vim-airline/vim-airline')
+  call dein#add('nanotech/jellybeans.vim')
 
   " NERDTree
   call dein#add('scrooloose/nerdtree')
@@ -73,11 +72,10 @@ endif
 
 "End dein Scripts-------------------------
 
-colorscheme simple-dark
-
 " General
 nnoremap gn :bnext<CR>
 nnoremap gN :bprev<CR>
+colorscheme jellybeans
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
