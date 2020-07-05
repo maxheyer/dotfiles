@@ -43,7 +43,7 @@ if dein#load_state('/Users/maxheyer/.cache/dein')
 
   " Themes
   call dein#add('vim-airline/vim-airline')
-  call dein#add('nanotech/jellybeans.vim')
+  call dein#add('Rigellute/rigel')
 
   " NERDTree
   call dein#add('scrooloose/nerdtree')
@@ -75,7 +75,7 @@ endif
 " General
 nnoremap gn :bnext<CR>
 nnoremap gN :bprev<CR>
-colorscheme jellybeans
+colorscheme rigel
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
