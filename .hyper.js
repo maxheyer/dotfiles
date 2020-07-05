@@ -151,9 +151,6 @@ module.exports = {
     "hyperterm-bold-tab",
     "hyper-tabs-enhanced",
     "hyper-simple-highlight-active-session",
-    "hypercwd",
-    "hyper-pane",
-    "hyper-search",
   ],
 
   // in development, you can create a directory under
