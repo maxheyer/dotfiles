@@ -100,11 +100,16 @@ let g:NERDTreeChDirMode = 2
 let g:rustfmt_autosave = 1
 
 " coc.nvim
-inoremap <silent><expr> <TAB>
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
