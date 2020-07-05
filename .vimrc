@@ -41,6 +41,7 @@ if dein#load_state('/Users/maxheyer/.cache/dein')
   call dein#add('jszakmeister/vim-togglecursor')
   call dein#add('tpope/vim-fugitive')
   call dein#add('ap/vim-buftabline')
+  call dein#add('raimondi/delimitmate')
 
   " Themes
   call dein#add('vim-airline/vim-airline')
