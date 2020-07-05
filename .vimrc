@@ -85,6 +85,8 @@ autocmd BufEnter * NERDTreeMirror
 nmap <silent> <C-t> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 
+autocmd! VimEnter * NERDTree | wincmd w " autofocus file
+
 let g:NERDTreeWinSize=60
 let g:NERDTreeWinPos = "right"
 let NERDTreeQuitOnOpen = 1
