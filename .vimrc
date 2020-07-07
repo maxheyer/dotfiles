@@ -146,3 +146,5 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Map ripgrep to \
 nnoremap \ :Rg<CR>
+
+autocmd FileType php set iskeyword+=$ " Set keyword for php files
