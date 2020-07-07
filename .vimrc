@@ -143,3 +143,6 @@ nmap <silent> gr <Plug>(coc-references)
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
+
+" Map ripgrep to \
+nnoremap \ :Rg<CR>
