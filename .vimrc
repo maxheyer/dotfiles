@@ -1,7 +1,6 @@
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
+set nocompatible
+filetype off
+syntax enable
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -27,69 +26,52 @@ set updatetime=300
 :retab
 
 
-" Map terminal exit
-:tnoremap <Esc> <C-\><C-n>
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-" Change cursor
+" Make sure you use single quotes
 
-" Required:
-set runtimepath+=/Users/maxheyer/.cache/dein/repos/github.com/Shougo/dein.vim
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
 
-" Required:
-if dein#load_state('/Users/maxheyer/.cache/dein')
-  call dein#begin('/Users/maxheyer/.cache/dein')
+" General
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'git://git.wincent.com/command-t.git'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'vim-syntastic/syntastic'
+Plug 'kien/ctrlp.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jszakmeister/vim-togglecursor'
+Plug 'ap/vim-buftabline'
+Plug 'raimondi/delimitmate'
 
-  " Let dein manage dein
-  " Required:
-  call dein#add('/Users/maxheyer/.cache/dein/repos/github.com/Shougo/dein.vim')
+" Themes
+Plug 'vim-airline/vim-airline'
+Plug 'Rigellute/rigel'
 
-  " Add or remove your plugins here like this:
-  "call dein#add('Shougo/neosnippet-snippets')
-  
-  " General
-  call dein#add('vim-syntastic/syntastic')
-  call dein#add('kien/ctrlp.vim')
-  call dein#add('junegunn/fzf')
-  call dein#add('junegunn/fzf.vim')
-  call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
-  call dein#add('jszakmeister/vim-togglecursor')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('ap/vim-buftabline')
-  call dein#add('raimondi/delimitmate')
+" NERDTree
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'jistr/vim-nerdtree-tabs'
 
-  " Themes
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('Rigellute/rigel')
+" Rust
+Plug 'rust-lang/rust.vim'
 
-  " NERDTree
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('Xuyuanp/nerdtree-git-plugin')
-  call dein#add('jistr/vim-nerdtree-tabs')
+" PHP
+Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
 
-  " Rust
-  call dein#add('rust-lang/rust.vim')
+" Python
+Plug 'hdima/python-syntax'
 
-  " PHP
-  call dein#add('phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'})
 
-  " Python
-  call dein#add('hdima/python-syntax')
+" Initialize plugin system
+call plug#end()
 
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
-
-"End dein Scripts-------------------------
 
 " General
 nnoremap gn :bnext<CR>
