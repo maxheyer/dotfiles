@@ -112,3 +112,5 @@ source $ZSH/oh-my-zsh.sh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 alias lg="lazygit"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
