@@ -44,7 +44,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'git://git.wincent.com/command-t.git'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'vim-syntastic/syntastic'
-Plug 'kien/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jszakmeister/vim-togglecursor'
 Plug 'ap/vim-buftabline'
@@ -85,6 +84,9 @@ autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
 nmap <silent> <C-t> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
+
+" fzf
+map <C-p> :Files<CR>
 
 autocmd! VimEnter * NERDTree | wincmd w " autofocus file
 
