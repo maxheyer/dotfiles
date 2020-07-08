@@ -56,7 +56,6 @@ Plug 'Rigellute/rigel'
 " NERDTree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'jistr/vim-nerdtree-tabs'
 
 " Rust
 Plug 'rust-lang/rust.vim'
