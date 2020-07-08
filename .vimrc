@@ -83,13 +83,9 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
 nmap <silent> <C-t> :NERDTreeToggle<CR>
-map <C-n> :NERDTreeToggle<CR>
-autocmd BufWinEnter * NERDTreeFind " Sync nerdtree with opened buffer
+map <C-n> :NERDTreeToggle<CR>a
 
-" fzf
-map <C-p> :Files<CR>
-
-autocmd! VimEnter * NERDTree | wincmd w " autofocus file
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close nerdtree when all tabs are closed
 
 let g:NERDTreeWinSize=60
 let g:NERDTreeWinPos = "right"
@@ -98,6 +94,11 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:NERDTreeChDirMode = 2
+
+
+
+" fzf
+map <C-p> :Files<CR>
 
 " Rust
 let g:rustfmt_autosave = 1
