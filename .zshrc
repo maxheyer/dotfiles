@@ -111,6 +111,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-alias lg="lazygit"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
