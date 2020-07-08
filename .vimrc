@@ -86,6 +86,8 @@ nmap <silent> <C-t> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>a
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close nerdtree when all tabs are closed
+autocmd! VimEnter * NERDTree | wincmd w " autofocus editor instead of NERDTree
+
 
 let g:NERDTreeWinSize=60
 let g:NERDTreeWinPos = "right"
