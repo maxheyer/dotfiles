@@ -63,6 +63,7 @@ Plug 'rust-lang/rust.vim'
 
 " PHP
 Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
+Plug 'evidens/vim-twig'
 
 " Python
 Plug 'hdima/python-syntax'
