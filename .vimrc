@@ -84,6 +84,7 @@ autocmd VimEnter * NERDTree
 autocmd BufEnter * NERDTreeMirror
 nmap <silent> <C-t> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
+autocmd BufWinEnter * NERDTreeFind " Sync nerdtree with opened buffer
 
 " fzf
 map <C-p> :Files<CR>
