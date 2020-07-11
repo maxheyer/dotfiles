@@ -48,6 +48,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jszakmeister/vim-togglecursor'
 Plug 'ap/vim-buftabline'
 Plug 'raimondi/delimitmate'
+Plug 'plasticboy/vim-markdown' " Markdown
 
 " Themes
 Plug 'vim-airline/vim-airline'
