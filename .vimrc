@@ -57,6 +57,7 @@ Plug 'Rigellute/rigel'
 " NERDTree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons' " icons
 
 " Rust
 Plug 'rust-lang/rust.vim'
