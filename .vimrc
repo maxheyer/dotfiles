@@ -1,6 +1,7 @@
 set nocompatible
 filetype off
 syntax enable
+set encoding=UTF-8
 
 " TextEdit might fail if hidden is not set.
 set hidden
