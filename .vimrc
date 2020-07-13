@@ -1,4 +1,5 @@
 set nocompatible
+set clipboard=unnamed
 filetype off
 syntax enable
 set encoding=UTF-8
