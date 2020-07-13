@@ -1,6 +1,5 @@
-**/*
-!.vimrc
 !.gitconfig
 !.gitignore
 !.hyper.js
 !.zshrc
+!.config/nvim/init.vim
