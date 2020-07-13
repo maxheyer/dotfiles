@@ -112,3 +112,4 @@ source $ZSH/oh-my-zsh.sh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias ctags="`brew --prefix`/bin/ctags"
