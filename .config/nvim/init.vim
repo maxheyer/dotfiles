@@ -59,6 +59,9 @@ call plug#begin()
     nnoremap <leader>u :Tags<cr>
     nnoremap <leader>j :call fzf#vim#tags("'".expand('<cword>'))<cr>
 
+    " ripgrep
+    nnoremap <leader>s :Rg<cr>
+
     " markdown
     Plug 'plasticboy/vim-markdown'
 
