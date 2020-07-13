@@ -113,3 +113,5 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias ctags="`brew --prefix`/bin/ctags"
+
+export VISUAL=nvim
