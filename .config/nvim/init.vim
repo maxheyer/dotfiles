@@ -74,6 +74,9 @@ call plug#begin()
     Plug 'rust-lang/rust.vim'
     Plug 'racer-rust/vim-racer'
     let g:racer_experimental_completer = 1
+
+    " git
+    Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " themes
