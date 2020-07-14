@@ -78,8 +78,18 @@ call plug#begin()
     Plug 'racer-rust/vim-racer'
     let g:racer_experimental_completer = 1
 
+    " php
+    Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
+    Plug 'kristijanhusak/deoplete-phpactor'
+    Plug 'beyondwords/vim-twig'
+
     " git
     Plug 'airblade/vim-gitgutter'
+
+    " tabs
+    Plug 'ap/vim-buftabline'
+    nnoremap gn :bnext<CR>
+    nnoremap gN :bprev<CR>
 call plug#end()
 
 " themes
