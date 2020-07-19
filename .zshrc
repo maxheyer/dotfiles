@@ -115,3 +115,4 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 alias ctags="`brew --prefix`/bin/ctags"
 
 export VISUAL=nvim
+eval "$(starship init zsh)"
