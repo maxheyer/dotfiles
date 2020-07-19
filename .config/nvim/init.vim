@@ -47,6 +47,7 @@ call plug#begin()
 
     " themes
     Plug 'cocopon/iceberg.vim'
+    Plug 'ayu-theme/ayu-vim'
 
     " fzf
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -93,5 +94,6 @@ call plug#begin()
 call plug#end()
 
 " themes
-set background=dark
-colorscheme iceberg
+set termguicolors
+let ayucolor="light"
+colorscheme ayu
