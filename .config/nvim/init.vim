@@ -80,9 +80,15 @@ call plug#begin()
     let g:racer_experimental_completer = 1
 
     " php
-    Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
+    Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
     Plug 'kristijanhusak/deoplete-phpactor'
     Plug 'beyondwords/vim-twig'
+
+    nnoremap <leader>i :call phpactor#UseAdd()<cr> 
+
+    " python
+    Plug 'davidhalter/jedi-vim'
+    Plug 'deoplete-plugins/deoplete-jedi'
 
     " git
     Plug 'airblade/vim-gitgutter'
@@ -96,4 +102,4 @@ call plug#end()
 " themes
 set termguicolors
 let ayucolor="light"
-colorscheme ayu
+colorscheme iceberg
