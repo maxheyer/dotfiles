@@ -5,6 +5,7 @@ set clipboard=unnamed
 syntax enable
 set encoding=UTF-8
 set hidden
+set nofixendofline
 
 " disable backup files
 set nobackup
