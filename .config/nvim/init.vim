@@ -103,4 +103,4 @@ call plug#end()
 " themes
 set termguicolors
 let ayucolor="light"
-colorscheme iceberg
+colorscheme ayu
