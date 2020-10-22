@@ -1,11 +1,31 @@
 " macos wide clipboard
 set clipboard=unnamed
 
-:let mapleader = "\<SPACE>"
+let mapleader = "\<SPACE>"
 syntax enable
 set encoding=UTF-8
 set hidden
 set nofixendofline
+set guicursor=
+set relativenumber
+set nohlsearch
+set noerrorbells
+set smartindent
+set nu
+set nowrap
+set undodir=~/.vim/undodir
+set undofile
+set scrolloff=8
+set noshowmode
+set completeopt=menuone,noinsert,noselect
+set signcolumn=yes
+
+" search
+set smartcase
+set incsearch
+
+" true colors
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " disable backup files
 set nobackup
@@ -15,17 +35,20 @@ set noswapfile
 " give more space for displaying messages.
 set cmdheight=2
 
-"show absolute line numbers
-set number
-
 " faster update time
-set updatetime=300
+set updatetime=50
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " use spaces instead of tabs
-:set expandtab
-:set tabstop=4
-:set shiftwidth=4
-:retab
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+retab
 
 " vim-plug
 call plug#begin()
@@ -47,8 +70,7 @@ call plug#begin()
     nnoremap <leader>t :NERDTreeToggle<CR>
 
     " themes
-    Plug 'cocopon/iceberg.vim'
-    Plug 'ayu-theme/ayu-vim'
+    Plug 'morhetz/gruvbox'
 
     " fzf
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -56,6 +78,7 @@ call plug#begin()
     " use ripgrep for fzf indexing
     if executable('rg')
         let $FZF_DEFAULT_COMMAND = 'rg --files --no-messages "" .'
+        let g:rg_derive_root='true'
     endif
     nnoremap <leader>v :Files<cr>
     nnoremap <leader>u :Tags<cr>
@@ -102,5 +125,11 @@ call plug#end()
 
 " themes
 set termguicolors
-let ayucolor="light"
-colorscheme ayu
+set background=dark
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+let g:gruvbox_invert_selection='0'
