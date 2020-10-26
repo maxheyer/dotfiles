@@ -70,7 +70,7 @@ call plug#begin()
     nnoremap <leader>t :NERDTreeToggle<CR>
 
     " themes
-    Plug 'morhetz/gruvbox'
+    Plug 'doums/darcula'
 
     " fzf
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -125,9 +125,8 @@ call plug#end()
 
 " themes
 set termguicolors
-set background=dark
-colorscheme gruvbox
-let g:gruvbox_contrast_dark = 'hard'
+colorscheme darcula
+
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
