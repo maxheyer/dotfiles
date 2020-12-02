@@ -90,9 +90,6 @@ call plug#begin()
     " markdown
     Plug 'plasticboy/vim-markdown'
 
-    " deoplete autocompletion
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    let g:deoplete#enable_at_startup = 1
 
     " airline status bar and tab bar
     Plug 'vim-airline/vim-airline'
@@ -107,12 +104,20 @@ call plug#begin()
     Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
     Plug 'kristijanhusak/deoplete-phpactor'
     Plug 'beyondwords/vim-twig'
+    Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
+    Plug 'ncm2/ncm2'
+    Plug 'roxma/nvim-yarp'
+    Plug 'phpactor/ncm2-phpactor'
+    Plug 'ncm2/ncm2-bufword'
+    Plug 'ncm2/ncm2-path'
+    let g:phpactorPhpBin = "/usr/local/bin/php"
 
+    autocmd BufEnter * call ncm2#enable_for_buffer()
+    set completeopt=noinsert,menuone,noselect
     nnoremap <leader>i :call phpactor#UseAdd()<cr> 
 
     " python
     Plug 'davidhalter/jedi-vim'
-    Plug 'deoplete-plugins/deoplete-jedi'
 
     " git
     Plug 'airblade/vim-gitgutter'
