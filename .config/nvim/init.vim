@@ -89,8 +89,7 @@ call plug#begin()
 
     " markdown
     Plug 'plasticboy/vim-markdown'
-
-
+    
     " airline status bar and tab bar
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -101,8 +100,6 @@ call plug#begin()
     let g:racer_experimental_completer = 1
 
     " php
-    Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
-    Plug 'kristijanhusak/deoplete-phpactor'
     Plug 'beyondwords/vim-twig'
     Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
     Plug 'ncm2/ncm2'
@@ -114,18 +111,20 @@ call plug#begin()
 
     autocmd BufEnter * call ncm2#enable_for_buffer()
     set completeopt=noinsert,menuone,noselect
+
     nnoremap <leader>i :call phpactor#UseAdd()<cr> 
 
     " python
     Plug 'davidhalter/jedi-vim'
 
     " git
-    Plug 'airblade/vim-gitgutter'
+    Plug 'tpope/vim-fugitive'
 
     " tabs
     Plug 'ap/vim-buftabline'
     nnoremap gn :bnext<CR>
     nnoremap gN :bprev<CR>
+
     " extras
     Plug 'tpope/vim-surround'
 call plug#end()
