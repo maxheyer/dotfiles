@@ -126,6 +126,8 @@ call plug#begin()
     Plug 'ap/vim-buftabline'
     nnoremap gn :bnext<CR>
     nnoremap gN :bprev<CR>
+    " extras
+    Plug 'tpope/vim-surround'
 call plug#end()
 
 " themes
