@@ -21,6 +21,8 @@
 --exclude=libs
 --exclude=db
 --exclude=*.html
+--exclude=var
+--exclude=tags
 
 --tag-relative=yes
 --langmap=php:+.inc
