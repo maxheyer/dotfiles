@@ -71,6 +71,7 @@ call plug#begin()
 
     " themes
     Plug 'doums/darcula'
+    Plug 'dikiaap/minimalist'
 
     " fzf
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -83,6 +84,7 @@ call plug#begin()
     nnoremap <leader>v :Files<cr>
     nnoremap <leader>u :Tags<cr>
     nnoremap <leader>j :call fzf#vim#tags("'".expand('<cword>'))<cr>
+    let g:fzf_layout = { 'down': '~40%' }
 
     " ripgrep
     nnoremap <leader>f :Rg<cr>
@@ -94,6 +96,26 @@ call plug#begin()
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
+    " ncm2
+    Plug 'ncm2/ncm2'
+    Plug 'roxma/nvim-yarp'
+    Plug 'ncm2/ncm2-bufword'
+    Plug 'ncm2/ncm2-path'
+    augroup ncm2
+      au!
+      autocmd BufEnter * call ncm2#enable_for_buffer()
+      au User Ncm2PopupOpen set completeopt=noinsert,menuone,noselect
+      au User Ncm2PopupClose set completeopt=menuone
+    augroup END
+    " cycle through completion entries with tab/shift+tab
+    inoremap <expr> <TAB> pumvisible() ? "\<c-n>" : "\<TAB>"
+    inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<TAB>"
+    nnoremap <leader>i :call phpactor#UseAdd()<cr> 
+
+    " coc
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
+
     " rust lang
     Plug 'rust-lang/rust.vim'
     Plug 'racer-rust/vim-racer'
@@ -102,17 +124,12 @@ call plug#begin()
     " php
     Plug 'beyondwords/vim-twig'
     Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
-    Plug 'ncm2/ncm2'
-    Plug 'roxma/nvim-yarp'
     Plug 'phpactor/ncm2-phpactor'
-    Plug 'ncm2/ncm2-bufword'
-    Plug 'ncm2/ncm2-path'
     let g:phpactorPhpBin = "/usr/local/bin/php"
 
-    autocmd BufEnter * call ncm2#enable_for_buffer()
-    set completeopt=noinsert,menuone,noselect
-
-    nnoremap <leader>i :call phpactor#UseAdd()<cr> 
+    " react next.js typescript
+    Plug 'ianks/vim-tsx'
+    Plug 'leafgarland/typescript-vim'
 
     " python
     Plug 'davidhalter/jedi-vim'
@@ -120,8 +137,7 @@ call plug#begin()
     " git
     Plug 'tpope/vim-fugitive'
 
-    " tabs
-    Plug 'ap/vim-buftabline'
+    " tabs configuration
     nnoremap gn :bnext<CR>
     nnoremap gN :bprev<CR>
 
@@ -131,7 +147,10 @@ call plug#end()
 
 " themes
 set termguicolors
-colorscheme darcula
+colorscheme minimalist
+let g:airline_theme='minimalist'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
