@@ -18,7 +18,7 @@ set undofile
 set scrolloff=8
 set noshowmode
 set completeopt=menuone,noinsert,noselect
-set signcolumn=yes
+set signcolumn=no
 
 " search
 set smartcase
@@ -42,7 +42,6 @@ set updatetime=50
 set shortmess+=c
 
 set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " use spaces instead of tabs
 set tabstop=4 softtabstop=4
@@ -157,3 +156,25 @@ if exists('+termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 let g:gruvbox_invert_selection='0'
+
+" hide nerdtree bar
+set fillchars+=vert:\ 
+
+highlight Normal guibg=NONE ctermbg=NONE
+highlight NonText guibg=none ctermbg=NONE
+highlight LineNr guibg=none ctermbg=NONE
+highlight WildMenu guibg=none ctermbg=NONE
+highlight VertSplit guibg=none ctermbg=NONE
+highlight StatusLine guibg=none ctermbg=NONE
+highlight ColorColumn guibg=none ctermbg=none
+
+highlight Comment guifg=darkgrey guibg=none ctermbg=none
+
+hi NERDTreeUp guibg=none ctermbg=NONE
+hi NERDTreeDir guibg=none ctermbg=NONE
+hi NERDTreeDirSlash guibg=none ctermbg=NONE
+hi NERDTreeFile guibg=none ctermbg=NONE
+hi NERDTreeCWD guibg=none ctermbg=NONE
+hi NERDTreeOpenable guibg=none ctermbg=NONE
+hi NERDTreeClosable guibg=none ctermbg=NONE
+
