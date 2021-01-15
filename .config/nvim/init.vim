@@ -137,8 +137,8 @@ call plug#begin()
     Plug 'tpope/vim-fugitive'
 
     " tabs configuration
-    nnoremap gn :bnext<CR>
-    nnoremap gN :bprev<CR>
+    nnoremap <Tab> :bnext<CR>
+    nnoremap <s-Tab> :bprev<CR>
 
     " extras
     Plug 'tpope/vim-surround'
