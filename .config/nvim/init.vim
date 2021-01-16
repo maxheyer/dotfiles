@@ -19,6 +19,12 @@ set scrolloff=8
 set noshowmode
 set completeopt=menuone,noinsert,noselect
 set signcolumn=no
+set foldlevel=0
+set foldmethod=manual
+
+" lazy drawing
+set lazyredraw
+set ttyfast
 
 " search
 set smartcase
@@ -37,6 +43,7 @@ set cmdheight=2
 
 " faster update time
 set updatetime=50
+set timeoutlen=100 ttimeoutlen=100
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
