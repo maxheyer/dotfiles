@@ -4,13 +4,13 @@
 export PATH=$HOME/Workspace/flutter/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/maxheyer/.oh-my-zsh"
+export ZSH="/home/maxheyer/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
+ZSH_THEME="robbyrussell"
 
 # Spaceship Theme
 SPACESHIP_PROMPT_ADD_NEWLINE="true"
@@ -112,8 +112,6 @@ source $ZSH/oh-my-zsh.sh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias ctags="`brew --prefix`/bin/ctags"
 alias lg="lazygit"
 
 export VISUAL=nvim
-eval "$(starship init zsh)"
