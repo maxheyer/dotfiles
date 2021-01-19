@@ -174,6 +174,7 @@ highlight WildMenu guibg=none ctermbg=NONE
 highlight VertSplit guibg=none ctermbg=NONE
 highlight StatusLine guibg=none ctermbg=NONE
 highlight ColorColumn guibg=none ctermbg=none
+highlight Visual guibg=#464646
 
 highlight Comment guifg=darkgrey guibg=none ctermbg=none
 
