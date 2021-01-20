@@ -1,5 +1,5 @@
-" macos wide clipboard
-set clipboard=unnamed
+" linux wide clipboard
+set clipboard+=unnamedplus
 
 let mapleader = "\<SPACE>"
 syntax enable
