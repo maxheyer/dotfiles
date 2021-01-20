@@ -43,7 +43,7 @@ set cmdheight=2
 
 " faster update time
 set updatetime=50
-set timeoutlen=100 ttimeoutlen=100
+set timeoutlen=500 ttimeoutlen=100
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -68,11 +68,6 @@ call plug#begin()
     let g:NERDTreeMinimalUI = 1
     let g:NERDTreeDirArrows = 1
     let g:NERDTreeChDirMode = 2
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-    autocmd VimEnter * NERDTree
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " Close nerdtree when all tabs are closed
-    autocmd! VimEnter * NERDTree | wincmd w " autofocus editor instead of NERDTree
     nnoremap <leader>t :NERDTreeToggle<CR>
 
     " themes
@@ -84,7 +79,7 @@ call plug#begin()
     Plug 'junegunn/fzf.vim'
     " use ripgrep for fzf indexing
     if executable('rg')
-        let $FZF_DEFAULT_COMMAND = 'rg --files --no-messages "" .'
+        let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --no-messages "" .'
         let g:rg_derive_root='true'
     endif
     nnoremap <leader>v :Files<cr>
@@ -131,7 +126,7 @@ call plug#begin()
     Plug 'beyondwords/vim-twig'
     Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
     Plug 'phpactor/ncm2-phpactor'
-    let g:phpactorPhpBin = "/usr/local/bin/php"
+    let g:phpactorPhpBin = "/usr/bin/php"
 
     " react next.js typescript
     Plug 'ianks/vim-tsx'
