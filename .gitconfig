@@ -9,3 +9,5 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	rb = for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/
+[pull]
+	ff = only
