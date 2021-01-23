@@ -2,12 +2,18 @@
 [user]
 	name = Max Heyer
 	email = mail@maxheyer.com
-[core]
-	excludesfile = /Users/maxheyer/.gitignore_global
-[commit]
-	template = /Users/maxheyer/.stCommitMsg
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	rb = for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/
+    a = add
+    c = commit -m
+    d = diff
+    dc = diff --cached
+    s = status -s
+    sm = s -uno
+    co = checkout
+    cob = checkout -b
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
 [pull]
 	ff = only
