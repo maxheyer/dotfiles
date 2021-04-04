@@ -44,8 +44,25 @@ window:
    # Keeping this as half of offset to vertically align the text in cursor
    y: 7
 
-  # Better font rendering for mac
-  use_thin_strokes: true
+font:
+  normal:
+    family: Jetbrains Mono
+    style: Regular
+
+  bold:
+    family: Jetbrains Mono
+    style: Bold
+
+  italic:
+    family: Jetbrains Mono
+    style: Italic
+
+  bold_italic:
+    family: Jetbrains Mono
+    style: Bold Italic
+
+  size: 10
+
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -66,33 +83,32 @@ key_bindings:
   - { key: 23,      mods: Alt, chars: "[" }
   - { key: 22,      mods: Alt, chars: "]" }
 
-# Colors (Gruvbox dark)
+
+# Colors (Ubuntu)
 colors:
   # Default colors
   primary:
-    # hard contrast: background = '#1d2021'
-    background: '#282828'
-    # soft contrast: background = '#32302f'
-    foreground: '#ebdbb2'
+    background: '#300a24'
+    foreground: '#eeeeec'
 
   # Normal colors
   normal:
-    black:   '#282828'
-    red:     '#cc241d'
-    green:   '#98971a'
-    yellow:  '#d79921'
-    blue:    '#458588'
-    magenta: '#b16286'
-    cyan:    '#689d6a'
-    white:   '#a89984'
+    black:   '#2e3436'
+    red:     '#cc0000'
+    green:   '#4e9a06'
+    yellow:  '#c4a000'
+    blue:    '#3465a4'
+    magenta: '#75507b'
+    cyan:    '#06989a'
+    white:   '#d3d7cf'
 
   # Bright colors
   bright:
-    black:   '#928374'
-    red:     '#fb4934'
-    green:   '#b8bb26'
-    yellow:  '#fabd2f'
-    blue:    '#83a598'
-    magenta: '#d3869b'
-    cyan:    '#8ec07c'
-    white:   '#ebdbb2'
+    black:   '#555753'
+    red:     '#ef2929'
+    green:   '#8ae234'
+    yellow:  '#fce94f'
+    blue:    '#729fcf'
+    magenta: '#ad7fa8'
+    cyan:    '#34e2e2'
+    white:   '#eeeeec'
