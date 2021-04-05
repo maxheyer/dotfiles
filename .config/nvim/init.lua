@@ -30,11 +30,12 @@ paq {'ojroques/nvim-lspfuzzy'}
 paq {'kyazdani42/nvim-web-devicons'}
 paq {'kyazdani42/nvim-tree.lua'}
 paq {'romgrk/barbar.nvim'}
+paq {'jaredgorski/spacecamp'}
 g['deoplete#enable_at_startup'] = 1  -- enable deoplete at startup
 
 -------------------- OPTIONS -------------------------------
 local indent = 4
-cmd 'colorscheme desert'                              -- Put your favorite colorscheme here
+cmd 'colorscheme spacecamp'                           -- Put your favorite colorscheme here
 opt('b', 'expandtab', true)                           -- Use spaces instead of tabs
 opt('b', 'shiftwidth', indent)                        -- Size of an indent
 opt('b', 'smartindent', true)                         -- Insert indents automatically
@@ -51,11 +52,14 @@ opt('o', 'splitbelow', true)                          -- Put new windows below c
 opt('o', 'splitright', true)                          -- Put new windows right of current
 opt('o', 'termguicolors', true)                       -- True color support
 opt('o', 'wildmode', 'list:longest')                  -- Command-line completion mode
+opt('o', 'clipboard', 'unnamedplus')                  -- Use system wide clipboard
+opt('o', 'lazyredraw', true)                          -- Use system wide clipboard
+opt('o', 'ttyfast', true)                          -- Use system wide clipboard
+opt('o', 'updatetime', 50)                          -- Use system wide clipboard
 opt('w', 'list', true)                                -- Show some invisible characters (tabs...)
 opt('w', 'number', true)                              -- Print line number
 opt('w', 'relativenumber', true)                      -- Relative line numbers
 opt('w', 'wrap', false)                               -- Disable line wrap
-opt('o', 'clipboard', 'unnamedplus')                  -- Use system wide clipboard
 
 g.nvim_tree_side = 'right'
 
