@@ -21,7 +21,7 @@ set completeopt=menuone,noinsert,noselect
 set colorcolumn=80
 set signcolumn=yes
 set cmdheight=2
-set updatetime=50
+set updatetime=10
 set lazyredraw
 set shortmess+=c
 
