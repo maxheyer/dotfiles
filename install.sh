@@ -5,7 +5,7 @@ mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/rofi
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/nvim/lua/maxheyer
-mkdir -p ~/.config/nvim/polybar
+mkdir -p ~/.config/polybar
 
 ln -s ~/.dotfiles/.i3/config ~/.i3/config
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
