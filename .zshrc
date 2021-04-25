@@ -113,12 +113,10 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias lg="lazygit"
+alias vim="nvim"
+
+
+eval $(keychain --eval --agents ssh --quick --quiet)
 
 export VISUAL=nvim
-
 export HOSTNAME=$(hostname)
-export SSH_AUTH_SOCK=~/.ssh/ssh-agent.$HOSTNAME.sock
-ssh-add -l 2>/dev/null >/dev/null
-if [ $? -ge 2 ]; then
-  ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
-fi
