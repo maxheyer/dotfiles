@@ -59,6 +59,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'romgrk/barbar.nvim'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -78,6 +79,7 @@ nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 nnoremap zz <cmd>:update<CR>
+inoremap <C-c> <esc>
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
