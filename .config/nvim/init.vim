@@ -24,6 +24,7 @@ set cmdheight=2
 set updatetime=10
 set lazyredraw
 set shortmess+=c
+set list
 
 " linux wide clipboard
 set clipboard+=unnamedplus
@@ -56,10 +57,15 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'ryanoasis/vim-devicons'
 
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'hoob3rt/lualine.nvim'
 Plug 'romgrk/barbar.nvim'
+
 Plug 'editorconfig/editorconfig-vim'
+Plug 'sbdchd/neoformat'
+Plug 'dstein64/nvim-scrollview'
 
 call plug#end()
 
@@ -91,6 +97,7 @@ nnoremap <s-tab> <cmd>:BufferPrevious<CR>
 vnoremap <leader>p
 
 let g:nvim_tree_side = 'right'
+let g:nvim_tree_width = 50
 nnoremap <leader>t <cmd>:NvimTreeToggle<cr>
 
 lua require("maxheyer")
@@ -109,3 +116,8 @@ vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.imp
 vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
 vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
 EOF
+
+autocmd BufWritePre,TextChanged,InsertLeave *.ts Neoformat
+autocmd FileType typescript setlocal formatprg=prettier
+" Use formatprg when available
+let g:neoformat_try_formatprg = 1
