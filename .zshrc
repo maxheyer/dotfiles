@@ -4,7 +4,7 @@
 export PATH=$HOME/.phpactor/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/maxheyer/.oh-my-zsh"
+export ZSH="/$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -112,11 +112,6 @@ source $ZSH/oh-my-zsh.sh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias lg="lazygit"
-alias vim="nvim"
-
-
-eval $(keychain --eval --agents ssh --quick --quiet)
 
 export VISUAL=nvim
 export HOSTNAME=$(hostname)
