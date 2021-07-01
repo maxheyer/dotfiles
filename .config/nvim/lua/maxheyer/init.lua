@@ -113,4 +113,3 @@ require('telescope').setup{
   }
 }
 
-require('lualine').setup{}

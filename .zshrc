@@ -2,7 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export PATH=$HOME/.phpactor/bin:$PATH
-
+export PATH=$HOME/.rustup/toolchains/nightly-x86_64-apple-darwin/bin:$PATH
+export PATH=$HOME/Workspace/flutter/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/$HOME/.oh-my-zsh"
 
@@ -109,6 +111,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias lg="lazygit"
+
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

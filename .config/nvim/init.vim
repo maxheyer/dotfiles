@@ -60,7 +60,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'hoob3rt/lualine.nvim'
 Plug 'romgrk/barbar.nvim'
 
 Plug 'editorconfig/editorconfig-vim'
