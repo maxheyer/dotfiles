@@ -67,6 +67,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'sbdchd/neoformat'
 Plug 'dstein64/nvim-scrollview'
 Plug 'ttys3/nvim-blamer.lua'
+Plug 'vim-vdebug/vdebug'
 
 call plug#end()
 
@@ -191,3 +192,10 @@ require'nvim-blamer'.setup({
 })
 
 EOF
+
+" VDEBUG
+
+if !exists('g:vdebug_options')
+    let g:vdebug_options = {}
+endif
+let g:vdebug_options.break_on_open = 0
