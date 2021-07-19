@@ -66,6 +66,7 @@ Plug 'romgrk/barbar.nvim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sbdchd/neoformat'
 Plug 'dstein64/nvim-scrollview'
+Plug 'ttys3/nvim-blamer.lua'
 
 call plug#end()
 
@@ -177,3 +178,16 @@ let bufferline.letters =
 " Sets the name of unnamed buffers. By default format is "[Buffer X]"
 " where X is the buffer number. But only a static string is accepted here.
 let bufferline.no_name_title = v:null
+
+" nvim blamer
+call nvimblamer#auto()
+
+""" config the plugin
+lua <<EOF
+
+require'nvim-blamer'.setup({
+    enable = true,
+    format = '%committer ? %committer-time-human ? %summary',
+})
+
+EOF
