@@ -72,6 +72,7 @@ require('telescope').setup{
       '--line-number',
       '--column',
       '--hidden',
+      '--no-ignore',
       '--smart-case'
     },
     prompt_prefix = "> ",

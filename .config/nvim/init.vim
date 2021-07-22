@@ -100,8 +100,6 @@ vnoremap <leader>p
 
 let g:nvim_tree_side = 'right' "left by default
 let g:nvim_tree_width = 60 "30 by default, can be width_in_columns or 'width_in_percent%'
-let g:nvim_tree_ignore = [ '.git' ] "empty by default
-let g:nvim_tree_gitignore = 1 "0 by default
 let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
 let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
 let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
