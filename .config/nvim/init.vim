@@ -37,7 +37,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'jaredgorski/spacecamp'
 Plug 'romgrk/doom-one.vim'
-Plug 'ayu-theme/ayu-vim'
+Plug 'NLKNguyen/papercolor-theme'
 
 " Lsp Plugins
 Plug 'neovim/nvim-lspconfig'
@@ -71,8 +71,10 @@ Plug 'vim-vdebug/vdebug'
 
 call plug#end()
 
-colorscheme doom-one
-highlight Normal guibg=none
+set t_Co=256
+set background=light
+colorscheme PaperColor
+" highlight Normal guibg=none
 
 if executable('rg')
     let g:rg_derive_root='true'
