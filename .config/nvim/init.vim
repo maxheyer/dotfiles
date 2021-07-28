@@ -72,8 +72,8 @@ Plug 'vim-vdebug/vdebug'
 call plug#end()
 
 set t_Co=256
-set background=light
-colorscheme PaperColor
+set background=dark
+colorscheme doom-one
 " highlight Normal guibg=none
 
 if executable('rg')
