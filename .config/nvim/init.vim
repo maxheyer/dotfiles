@@ -179,9 +179,6 @@ let bufferline.letters =
 " where X is the buffer number. But only a static string is accepted here.
 let bufferline.no_name_title = v:null
 
-" nvim blamer
-call nvimblamer#auto()
-
 """ config the plugin
 lua <<EOF
 
