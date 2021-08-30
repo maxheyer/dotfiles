@@ -35,9 +35,7 @@ set wildignore+=**/node_modules/*
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'jaredgorski/spacecamp'
-Plug 'romgrk/doom-one.vim'
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " Lsp Plugins
 Plug 'neovim/nvim-lspconfig'
@@ -78,8 +76,9 @@ call plug#end()
 
 set t_Co=256
 set background=dark
-colorscheme doom-one
-" highlight Normal guibg=none
+let g:tokyonight_style = "night"
+colorscheme tokyonight
+" highlight normal guibg=none
 
 if executable('rg')
     let g:rg_derive_root='true'
@@ -87,74 +86,74 @@ endif
 
 let mapleader = " "
 
-" Find files using Telescope command-line sugar.
-nnoremap <leader>n <cmd>:Telescope find_files find_command=rg,--no-ignore,--hidden,--files<cr>
+" find files using telescope command-line sugar.
+nnoremap <leader>n <cmd>:telescope find_files find_command=rg,--no-ignore,--hidden,--files<cr>
 nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <leader>t <cmd>:Telescope file_browser hidden=true<cr>
+nnoremap <leader>t <cmd>:telescope file_browser hidden=true<cr>
 
-nnoremap zz <cmd>:update<CR>
-inoremap <C-c> <esc>
+nnoremap zz <cmd>:update<cr>
+inoremap <c-c> <esc>
 
-" Use <Tab> and <S-Tab> to navigate through popup menu
-imap <tab> <Plug>(completion_smart_tab)
-imap <s-tab> <Plug>(completion_smart_s_tab)
+" use <tab> and <s-tab> to navigate through popup menu
+imap <tab> <plug>(completion_smart_tab)
+imap <s-tab> <plug>(completion_smart_s_tab)
 let g:completion_enable_snippet = 'vim-vsnip'
 
-nnoremap <tab> <cmd>:BufferNext<CR>
-nnoremap <s-tab> <cmd>:BufferPrevious<CR>
+nnoremap <tab> <cmd>:buffernext<cr>
+nnoremap <s-tab> <cmd>:bufferprevious<cr>
 
 vnoremap <leader>p
 
 lua require("maxheyer")
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
-" Use completion-nvim in every buffer
-autocmd BufEnter * lua require'completion'.on_attach()
+" use completion-nvim in every buffer
+autocmd bufenter * lua require'completion'.on_attach()
 
-lua <<EOF
-vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
-vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
-vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
-vim.lsp.handlers['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
-vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
-vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
-vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
+lua <<eof
+vim.lsp.handlers['textdocument/codeaction'] = require'lsputil.codeaction'.code_action_handler
+vim.lsp.handlers['textdocument/references'] = require'lsputil.locations'.references_handler
+vim.lsp.handlers['textdocument/definition'] = require'lsputil.locations'.definition_handler
+vim.lsp.handlers['textdocument/declaration'] = require'lsputil.locations'.declaration_handler
+vim.lsp.handlers['textdocument/typedefinition'] = require'lsputil.locations'.typedefinition_handler
+vim.lsp.handlers['textdocument/implementation'] = require'lsputil.locations'.implementation_handler
+vim.lsp.handlers['textdocument/documentsymbol'] = require'lsputil.symbols'.document_handler
 vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
-EOF
+eof
 
-autocmd BufWritePre,TextChanged,InsertLeave *.ts Neoformat
-autocmd FileType typescript setlocal formatprg=prettier
-" Use formatprg when available
+autocmd bufwritepre,textchanged,insertleave *.ts neoformat
+autocmd filetype typescript setlocal formatprg=prettier
+" use formatprg when available
 let g:neoformat_try_formatprg = 1
 
 let bufferline = get(g:, 'bufferline', {})
 
-" Enable/disable animations
+" enable/disable animations
 let bufferline.animation = v:true
 
-" Enable/disable auto-hiding the tab bar when there is a single buffer
+" enable/disable auto-hiding the tab bar when there is a single buffer
 let bufferline.auto_hide = v:false
 
-" Enable/disable current/total tabpages indicator (top right corner)
+" enable/disable current/total tabpages indicator (top right corner)
 let bufferline.tabpages = v:true
 
-" Enable/disable close button
+" enable/disable close button
 let bufferline.closable = v:true
 
-" Enables/disable clickable tabs
+" enables/disable clickable tabs
 "  - left-click: go to buffer
 "  - middle-click: delete buffer
 let bufferline.clickable = v:true
 
-" Enable/disable icons
+" enable/disable icons
 " if set to 'numbers', will show buffer index in the tabline
 " if set to 'both', will show buffer index and icons in the tabline
 let bufferline.icons = v:true
 
-" Sets the icon's highlight group.
-" If false, will use nvim-web-devicons colors
+" sets the icon's highlight group.
+" if false, will use nvim-web-devicons colors
 let bufferline.icon_custom_colors = v:false
 
 " Configure icons on the bufferline.
