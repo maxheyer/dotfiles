@@ -40,9 +40,6 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " Lsp Plugins
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-Plug 'tjdevries/lsp_extensions.nvim'
-Plug 'RishabhRD/popfix'
-Plug 'RishabhRD/nvim-lsputils'
 
 " Snippets
 Plug 'hrsh7th/vim-vsnip'
@@ -100,8 +97,8 @@ imap <tab> <plug>(completion_smart_tab)
 imap <s-tab> <plug>(completion_smart_s_tab)
 let g:completion_enable_snippet = 'vim-vsnip'
 
-nnoremap <tab> <cmd>:buffernext<cr>
-nnoremap <s-tab> <cmd>:bufferprevious<cr>
+nnoremap <tab> <cmd>:bnext<cr>
+nnoremap <s-tab> <cmd>:bprevious<cr>
 
 vnoremap <leader>p
 
@@ -109,17 +106,6 @@ lua require("maxheyer")
 
 " use completion-nvim in every buffer
 autocmd bufenter * lua require'completion'.on_attach()
-
-lua <<eof
-vim.lsp.handlers['textdocument/codeaction'] = require'lsputil.codeaction'.code_action_handler
-vim.lsp.handlers['textdocument/references'] = require'lsputil.locations'.references_handler
-vim.lsp.handlers['textdocument/definition'] = require'lsputil.locations'.definition_handler
-vim.lsp.handlers['textdocument/declaration'] = require'lsputil.locations'.declaration_handler
-vim.lsp.handlers['textdocument/typedefinition'] = require'lsputil.locations'.typedefinition_handler
-vim.lsp.handlers['textdocument/implementation'] = require'lsputil.locations'.implementation_handler
-vim.lsp.handlers['textdocument/documentsymbol'] = require'lsputil.symbols'.document_handler
-vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
-eof
 
 autocmd bufwritepre,textchanged,insertleave *.ts neoformat
 autocmd filetype typescript setlocal formatprg=prettier
