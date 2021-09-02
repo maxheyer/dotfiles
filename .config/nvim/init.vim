@@ -67,6 +67,7 @@ Plug 'sbdchd/neoformat'
 Plug 'dstein64/nvim-scrollview'
 Plug 'ttys3/nvim-blamer.lua'
 Plug 'vim-vdebug/vdebug'
+Plug 'beauwilliams/statusline.lua'
 
 call plug#end()
 
