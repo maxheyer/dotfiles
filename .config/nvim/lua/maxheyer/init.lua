@@ -1,6 +1,8 @@
 local on_attach = require'completion'.on_attach
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
 
-local nvim_lsp = require('lspconfig')
+local lspconfig = require('lspconfig')
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -53,7 +55,10 @@ end
 -- and map buffer local keybindings when the language server attaches
 local servers = { "pylsp", "phpactor", "tsserver", "html", "gopls" }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup { on_attach = on_attach }
+  lspconfig[lsp].setup({
+    on_attach = lsp_status.on_attach,
+    capabilities = lsp_status.capabilities
+  })
 end
 
 require('rust-tools').setup({
