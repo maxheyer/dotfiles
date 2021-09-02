@@ -40,6 +40,7 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " Lsp Plugins
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/lsp-status.nvim'
 
 " Snippets
 Plug 'hrsh7th/vim-vsnip'
