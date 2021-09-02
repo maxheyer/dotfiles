@@ -51,7 +51,6 @@ Plug 'rafamadriz/friendly-snippets'
 
 " Neovim Tree shitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground'
 
 Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
@@ -87,11 +86,11 @@ endif
 let mapleader = " "
 
 " find files using telescope command-line sugar.
-nnoremap <leader>n <cmd>:telescope find_files find_command=rg,--no-ignore,--hidden,--files<cr>
+nnoremap <leader>n <cmd>:Telescope find_files find_command=rg,--no-ignore,--hidden,--files<cr>
 nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <leader>t <cmd>:telescope file_browser hidden=true<cr>
+nnoremap <leader>t <cmd>:Telescope file_browser hidden=true<cr>
 
 nnoremap zz <cmd>:update<cr>
 inoremap <c-c> <esc>
@@ -107,7 +106,6 @@ nnoremap <s-tab> <cmd>:bufferprevious<cr>
 vnoremap <leader>p
 
 lua require("maxheyer")
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 " use completion-nvim in every buffer
 autocmd bufenter * lua require'completion'.on_attach()
