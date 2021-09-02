@@ -86,11 +86,11 @@ endif
 let mapleader = " "
 
 " find files using telescope command-line sugar.
-nnoremap <leader>n <cmd>:Telescope find_files find_command=rg,--no-ignore,--hidden,--files<cr>
-nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-nnoremap <leader>t <cmd>:Telescope file_browser hidden=true<cr>
+nnoremap <leader>n <cmd>:Telescope find_files theme=get_ivy find_command=rg,--no-ignore,--hidden,--files<cr>
+nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_ity({}))<cr>
+nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_ity({}))<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_ity({}))<cr>
+nnoremap <leader>t <cmd>:Telescope file_browser theme=get_ivy hidden=true<cr>
 
 nnoremap zz <cmd>:update<cr>
 inoremap <c-c> <esc>
