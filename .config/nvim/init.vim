@@ -56,7 +56,7 @@ Plug 'simrat39/rust-tools.nvim'
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/plenary.nvim', { 'commit': '83b049c5788bed243b8d73c5445b3552d26762bb' }
 Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'kyazdani42/nvim-web-devicons'
