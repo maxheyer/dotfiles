@@ -11,7 +11,12 @@ local function set_vim_o()
     scrolloff = 8,
     softtabstop = 4,
     showmode = false,
-    termguicolors = true
+    termguicolors = true,
+    hlsearch = false,
+    incsearch = true,
+    nu = true,
+    undofile = true,
+    swapfile = false
   }
 
   -- Generic vim.o
@@ -20,12 +25,11 @@ local function set_vim_o()
   end
 
   -- Custom vim.o
-  vim.o.clipboard = 'unnamedplus'
   vim.o.shortmess = vim.o.shortmess .. 'c'
 
   -- Not yet in vim.o
+  vim.cmd('set clipboard+=unnamedplus')
   vim.cmd('set encoding=utf8')
-  vim.cmd('set nowritebackup')
   vim.cmd('set shiftwidth=4')
   vim.cmd('set secure')
   vim.cmd('set splitright')
@@ -34,7 +38,6 @@ local function set_vim_o()
 end
 
 local function set_vim_wo()
-  vim.wo.number = true
   vim.wo.relativenumber = true
   vim.wo.wrap = false
 end

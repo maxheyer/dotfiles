@@ -47,15 +47,15 @@ local function packer_startup()
     end,
   }
 
-  -- Snippets
+  -- Completion
   use {
-    'hrsh7th/vim-vsnip',
+    'hrsh7th/nvim-compe',
     requires = {
-      'hrsh7th/vim-vsnip-integ',
-      'rafamadriz/friendly-snippets',
+      'L3MON4D3/LuaSnip',
+      'onsails/lspkind-nvim',
     },
     config = function ()
-      require'maxheyer.plugins.snippets'.init()
+      require'maxheyer.plugins.completion'.init()
     end
   }
 
