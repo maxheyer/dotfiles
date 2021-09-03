@@ -9,7 +9,7 @@ local function set_vim_o()
     expandtab = true,
     hidden = true,
     scrolloff = 8,
-    softtabstop = 4,
+    softtabstop = 0,
     showmode = false,
     termguicolors = true,
     hlsearch = false,
@@ -34,6 +34,7 @@ local function set_vim_o()
   vim.cmd('set secure')
   vim.cmd('set splitright')
   vim.cmd('set tabstop=4')
+  vim.cmd('set smarttab')
   vim.cmd('set updatetime=10')
 end
 
