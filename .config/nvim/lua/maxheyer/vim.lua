@@ -16,7 +16,8 @@ local function set_vim_o()
     incsearch = true,
     nu = true,
     undofile = true,
-    swapfile = false
+    swapfile = false,
+    list = true
   }
 
   -- Generic vim.o
