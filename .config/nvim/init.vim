@@ -91,6 +91,7 @@ nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep(require('tele
 nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_ivy({}))<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_ivy({}))<cr>
 nnoremap <leader>t <cmd>:Telescope file_browser theme=get_ivy hidden=true<cr>
+nnoremap <leader>ci <cmd>:Telescope treesitter theme=get_ivy<cr>
 
 nnoremap zz <cmd>:update<cr>
 inoremap <c-c> <esc>
