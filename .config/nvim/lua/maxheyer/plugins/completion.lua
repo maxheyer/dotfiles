@@ -3,6 +3,7 @@ local check_back_space = function()
   return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' ~= nil
 end
 local luasnip = require("luasnip")
+require("luasnip/loaders/from_vscode").load()
 
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)

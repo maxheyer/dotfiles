@@ -55,6 +55,7 @@ local function make_config()
     }
   }
 
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
   return {
     -- enable snippet support
     capabilities = capabilities,
