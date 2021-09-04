@@ -1,5 +1,6 @@
 local function set_vim_g()
   vim.g.mapleader = " "
+  vim.g.rg_derive_root = true
 end
 
 local function set_vim_o()
