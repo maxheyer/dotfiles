@@ -30,7 +30,7 @@ local function set_vim_o()
   vim.o.shortmess = vim.o.shortmess .. 'c'
 
   -- Not yet in vim.o
-  vim.cmd('set clipboard+=unnamedplus')
+  vim.cmd('set clipboard=unnamedplus')
   vim.cmd('set encoding=utf8')
   vim.cmd('set shiftwidth=4')
   vim.cmd('set secure')
