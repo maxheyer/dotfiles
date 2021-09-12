@@ -1,20 +1,6 @@
 local function init()
   require'nvim-treesitter.configs'.setup{
-    ensure_installed = {
-      'bash',
-      'css',
-      'dockerfile',
-      'graphql',
-      'html',
-      'javascript',
-      'jsdoc',
-      'json',
-      'lua',
-      'php',
-      'tsx',
-      'typescript',
-      'yaml',
-    },
+    ensure_installed = "maintained",
     highlight = {
       enable = true
     },
