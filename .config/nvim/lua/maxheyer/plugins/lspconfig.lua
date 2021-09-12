@@ -56,6 +56,7 @@ local function make_config()
   }
 
   capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
   return {
     -- enable snippet support
     capabilities = capabilities,
@@ -70,6 +71,8 @@ local function init()
     "cssls", -- tbi
     "html",
     "jsonls", -- tbi
+--    "tailwindcss", -- tbi
+    "denols", -- tbi
   }
 
   for _, server in pairs(lspconfig_servers) do
