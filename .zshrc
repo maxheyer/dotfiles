@@ -114,6 +114,7 @@ alias lg="lazygit"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 export VISUAL=nvim
 export HOSTNAME=$(hostname)
