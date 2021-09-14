@@ -3,3 +3,5 @@
 !.hyper.js
 !.zshrc
 !.config/nvim/init.vim
+.config/nvim/lua/lua
+
