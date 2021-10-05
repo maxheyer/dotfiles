@@ -84,11 +84,19 @@ local function packer_startup()
     end
   }
 
-  -- Vdebug
+  -- vimspector
   use {
-    'vim-vdebug/vdebug',
+    'puremourning/vimspector',
     config = function ()
-      require'maxheyer.plugins.vdebug'.init()
+      require'maxheyer.plugins.vimspector'.init()
+    end
+  }
+
+  -- lspsaga
+  use {
+    'tami5/lspsaga.nvim',
+    config = function ()
+      require'maxheyer.plugins.lspsaga'.init()
     end
   }
 
