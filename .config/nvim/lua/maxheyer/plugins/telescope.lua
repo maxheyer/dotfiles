@@ -18,7 +18,7 @@ local function init()
         initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "descending",
-        layout_strategy = "horizontal",
+        layout_strategy = "vertical",
         layout_config = {
           horizontal = {
             mirror = false,
@@ -50,7 +50,7 @@ local function init()
   local options = { noremap = true }
 
   -- Builtin
-  map('n', '<leader>fe', '<CMD>lua require("telescope.builtin").file_browser{ theme = get_ivy, cwd = vim.fn.expand("%:p:h") }<CR>', options)
+  map('n', '<leader>fe', '<CMD>lua require("telescope.builtin").file_browser{ cwd = vim.fn.expand("%:p:h") }<CR>', options)
   map('n', '<leader>ff', '<CMD>:Telescope find_files find_command=rg,--no-ignore,--hidden,--files<CR>', options)
   map('n', '<leader>fl', '<CMD>lua require("telescope.builtin").live_grep()<CR>', options)
   map('n', '<leader>fb', '<CMD>lua require("telescope.builtin").buffers()<CR>', options)
