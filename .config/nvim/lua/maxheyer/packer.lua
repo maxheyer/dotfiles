@@ -84,6 +84,15 @@ local function packer_startup()
     end
   }
 
+  -- debug
+  use {
+    'mfussenegger/nvim-dap',
+    config = function ()
+      require'maxheyer.plugins.dap'.init()
+    end,
+    run = 'git clone https://github.com/xdebug/vscode-php-debug.git ~/.vscode-php-debug && cd ~/.vscode-php-debug && npm install && npm run build'
+  }
+
   -- Utilities
   use {
     'hoob3rt/lualine.nvim',
