@@ -71,9 +71,8 @@ local function init()
     "cssls", -- tbi
     "html",
     "jsonls", -- tbi
---    "tailwindcss", -- tbi
-    "denols", -- tbi
     "tsserver", -- tbi
+    "rust_analyzer"
   }
 
   for _, server in pairs(lspconfig_servers) do

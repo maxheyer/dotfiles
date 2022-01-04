@@ -43,6 +43,10 @@ local function init()
       },
       pickers = {
       },
+      extensions = {
+        file_browser = {
+        }
+    },
   }
 
   local map = vim.api.nvim_set_keymap
@@ -50,7 +54,7 @@ local function init()
   local options = { noremap = true }
 
   -- Builtin
-  map('n', '<leader>fe', '<CMD>lua require("telescope.builtin").file_browser{ cwd = vim.fn.expand("%:p:h") }<CR>', options)
+  map('n', '<leader>fe', '<CMD>lua require("telescope").extensions.file_browser.file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>', options)
   map('n', '<leader>ff', '<CMD>:Telescope find_files find_command=rg,--no-ignore,--hidden,--files<CR>', options)
   map('n', '<leader>fl', '<CMD>lua require("telescope.builtin").live_grep()<CR>', options)
   map('n', '<leader>fb', '<CMD>lua require("telescope.builtin").buffers()<CR>', options)
@@ -62,6 +66,8 @@ local function init()
   -- Extensions
   map('n', '<leader>fs', '<CMD>lua require("telescope").extensions["session-lens"].search_session()<CR>', options)
   map('n', '<leader>fw', '<CMD>lua require("telescope").extensions.git_worktree.git_worktrees()<CR>', options)
+
+  require'telescope'.load_extension "file_browser"
 end
 
 return {

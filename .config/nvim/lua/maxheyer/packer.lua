@@ -55,6 +55,7 @@ local function packer_startup()
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-cmdline',
 
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
@@ -69,6 +70,7 @@ local function packer_startup()
   -- Telescope
   use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
+  use 'nvim-telescope/telescope-file-browser.nvim'
   use {
     'nvim-telescope/telescope.nvim',
     config = function ()
@@ -82,15 +84,6 @@ local function packer_startup()
     config = function ()
       require'maxheyer.plugins.tokyonight'.init()
     end
-  }
-
-  -- debug
-  use {
-    'mfussenegger/nvim-dap',
-    config = function ()
-      require'maxheyer.plugins.dap'.init()
-    end,
-    run = 'git clone https://github.com/xdebug/vscode-php-debug.git ~/.vscode-php-debug && cd ~/.vscode-php-debug && npm install && npm run build'
   }
 
   -- Utilities
