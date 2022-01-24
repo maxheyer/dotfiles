@@ -79,10 +79,13 @@ local function packer_startup()
   }
 
   -- Themes
+  use 'jaredgorski/SpaceCamp'
+  use 'ghifarit53/tokyonight-vim'
+
   use {
-    'folke/tokyonight.nvim',
+    'folke/lsp-colors.nvim',
     config = function ()
-      require'maxheyer.plugins.tokyonight'.init()
+      require'maxheyer.plugins.colorscheme'.init()
     end
   }
 
