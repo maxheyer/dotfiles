@@ -1,6 +1,6 @@
 # This is Git's per-user configuration file.
 [user]
-	name = Max Heyer
+	name = "Max Heyer"
 	email = mail@maxheyer.com
 [alias]
 	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -24,3 +24,5 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[init]
+	defaultBranch = master
