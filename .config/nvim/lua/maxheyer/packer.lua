@@ -47,6 +47,14 @@ local function packer_startup()
     end,
   }
 
+  -- PHP
+  use {
+    'praem90/nvim-phpcsf',
+    config = function ()
+      require'maxheyer.plugins.php'.init()
+    end,
+  }
+
   -- Completion
   use {
     'hrsh7th/nvim-cmp',
@@ -81,6 +89,11 @@ local function packer_startup()
   -- Themes
   use 'jaredgorski/SpaceCamp'
   use 'ghifarit53/tokyonight-vim'
+  use {
+    "mcchrish/zenbones.nvim",
+    requires = "rktjmp/lush.nvim"
+  }
+  use "rafamadriz/neon"
 
   use {
     'folke/lsp-colors.nvim',
