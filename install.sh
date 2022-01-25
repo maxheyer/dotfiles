@@ -8,6 +8,7 @@ mkdir -p ~/.config/yabai
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
+ln -s ~/.dotfiles/.hyper.js ~/.hyper.js
 
 ln -s ~/.dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -s ~/.dotfiles/.config/nvim/init.lua ~/.config/nvim/init.lua
