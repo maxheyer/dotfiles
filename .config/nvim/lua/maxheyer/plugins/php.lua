@@ -3,7 +3,6 @@ local function init()
         augroup PHBSCF
             autocmd!
             autocmd BufWritePost,BufReadPost,InsertLeave *.php :lua require'phpcs'.cs()
-            autocmd BufWritePre *.php :lua require'phpcs'.cbf()
         augroup END
     ]], false)
 end

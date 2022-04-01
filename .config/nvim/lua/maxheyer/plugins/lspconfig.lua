@@ -6,6 +6,7 @@ local function on_attach(client, bufnr)
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'ds', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua require("telescope.builtin").lsp_implementations()<cr>', opts)
   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
@@ -72,7 +73,8 @@ local function init()
     "html",
     "jsonls", -- tbi
     "tsserver", -- tbi
-    "rust_analyzer"
+    "rust_analyzer",
+    "gopls"
   }
 
   for _, server in pairs(lspconfig_servers) do

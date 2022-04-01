@@ -29,6 +29,7 @@ local function packer_startup()
     requires = {
       'RishabhRD/popfix',
       'RishabhRD/nvim-lsputils',
+      'nvim-lua/lsp_extensions.nvim',
     },
     config = function ()
       require'maxheyer.plugins.lspconfig'.init()
@@ -47,6 +48,8 @@ local function packer_startup()
     end,
   }
 
+  use 'github/copilot.vim'
+
   -- PHP
   use {
     'praem90/nvim-phpcsf',
@@ -59,6 +62,7 @@ local function packer_startup()
   use {
     'hrsh7th/nvim-cmp',
     requires = {
+      'lukas-reineke/cmp-rg',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
@@ -85,6 +89,18 @@ local function packer_startup()
       require'maxheyer.plugins.telescope'.init()
     end
   }
+  -- Debug
+  use {
+    'mfussenegger/nvim-dap',
+    requires = {
+        'leoluz/nvim-dap-go',
+        'rcarriga/nvim-dap-ui',
+        'nvim-telescope/telescope-dap.nvim'
+    },
+    config = function ()
+      require'maxheyer.plugins.dap'.init()
+    end
+  }
 
   -- Themes
   use 'jaredgorski/SpaceCamp'
@@ -94,6 +110,10 @@ local function packer_startup()
     requires = "rktjmp/lush.nvim"
   }
   use "rafamadriz/neon"
+  use({
+	"catppuccin/nvim",
+	as = "catppuccin"
+  })
 
   use {
     'folke/lsp-colors.nvim',
@@ -107,6 +127,13 @@ local function packer_startup()
     'hoob3rt/lualine.nvim',
     config = function ()
       require'maxheyer.plugins.status_line'.init()
+    end
+  }
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function ()
+      require'maxheyer.plugins.gitsigns'.init()
     end
   }
 
