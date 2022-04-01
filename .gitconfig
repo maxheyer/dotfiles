@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = "Max Heyer"
-	email = mail@maxheyer.com
+	email = max@wunder.software
 [alias]
 	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	rb = for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/
@@ -19,6 +19,7 @@
 	ff = only
 [core]
 	quotepath = false
+	excludesfile = /Users/maxheyer/.gitignore_global
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
@@ -26,3 +27,9 @@
 	smudge = git-lfs smudge -- %f
 [init]
 	defaultBranch = master
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
