@@ -38,6 +38,7 @@ local function set_vim_o()
   vim.cmd('set tabstop=4')
   vim.cmd('set smarttab')
   vim.cmd('set updatetime=10')
+  vim.cmd('set cursorline')
 end
 
 local function set_vim_wo()
