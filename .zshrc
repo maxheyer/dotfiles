@@ -7,6 +7,7 @@ export PATH=$HOME/Workspace/flutter/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 export PATH="$HOME/.symfony/bin:$PATH"
 export PATH="$HOME/.deno/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH="/$HOME/.oh-my-zsh"
 

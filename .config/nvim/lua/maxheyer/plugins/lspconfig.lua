@@ -40,6 +40,8 @@ local function on_attach(client, bufnr)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
+
+      autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = '> ', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
     ]], false)
   end
 end

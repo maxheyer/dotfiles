@@ -137,6 +137,19 @@ local function packer_startup()
     end
   }
 
+  -- lightspeed
+  use {
+    'ggandor/lightspeed.nvim',
+    requires = {
+        'tpope/vim-repeat',
+        'rcarriga/nvim-dap-ui',
+        'nvim-telescope/telescope-dap.nvim'
+    },
+    config = function ()
+      require'maxheyer.plugins.lightspeed'.init()
+    end
+  }
+
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
 
