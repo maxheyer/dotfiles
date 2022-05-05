@@ -30,7 +30,7 @@ local function set_vim_o()
   vim.o.shortmess = vim.o.shortmess .. 'c'
 
   -- Not yet in vim.o
-  vim.cmd('set clipboard=unnamedplus')
+  vim.cmd('set clipboard+=unnamedplus')
   vim.cmd('set encoding=utf8')
   vim.cmd('set shiftwidth=4')
   vim.cmd('set secure')
@@ -38,7 +38,7 @@ local function set_vim_o()
   vim.cmd('set tabstop=4')
   vim.cmd('set smarttab')
   vim.cmd('set updatetime=10')
-  vim.cmd('set cursorline')
+  vim.cmd('set nocursorline')
 end
 
 local function set_vim_wo()

@@ -8,6 +8,9 @@ export PATH=$HOME/go/bin:$PATH
 export PATH="$HOME/.symfony/bin:$PATH"
 export PATH="$HOME/.deno/bin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/postman:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH="/$HOME/.oh-my-zsh"
 
@@ -114,3 +117,12 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 export VISUAL=nvim
 export HOSTNAME=$(hostname)
+
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
