@@ -5,7 +5,6 @@ mkdir -p ~/.config/kitty
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/picom
 mkdir -p ~/.config/rofi
-mkdir -p ~/.config/polybar
 mkdir -p ~/.config/phpactor
 mkdir -p ~/.i3
 
@@ -19,6 +18,7 @@ ln -s ~/.dotfiles/.config/rofi/config.rasi ~/.config/rofi/config.rasi
 
 ln -s ~/.dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -s ~/.dotfiles/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
+ln -s ~/.dotfiles/.config/mpv ~/.config/mpv
 
 ln -s ~/.dotfiles/.config/nvim/init.lua ~/.config/nvim/init.lua
 ln -s ~/.dotfiles/.config/nvim/lua ~/.config/nvim/lua
