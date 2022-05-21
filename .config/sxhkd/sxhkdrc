@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + @space
-	rofi -show-icons -show combi -font \\"FiraCode Nerd Font Mono 10\\" -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'
+	rofi -show-icons -show combi -font \\"JetbrainsMono Nerd Font Medium 10\\" -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'
 
 # make sxhkd reload its configuration files:
 super + Escape
