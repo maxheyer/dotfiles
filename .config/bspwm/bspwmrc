@@ -5,11 +5,16 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 bspc monitor -d 1 2 3 4
 
 bspc config border_width         1
-bspc config window_gap          12
+bspc config window_gap          10
+bspc config top_padding 40
 
-bspc config split_ratio          0.52
+bspc config split_ratio          0.50
 bspc config borderless_monocle   true
-bspc config gapless_monocle      true
+bspc config gapless_monocle      false
+bspc config single_monocle true
+
+bspc config normal_border_color "#484848"
+bspc config focused_border_color "#dba0bb"
 
 bspc rule -a firefox desktop='^2'
 
@@ -21,3 +26,4 @@ $HOME/.config/polybar/launch.sh
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 nitrogen --restore &
 picom &
+flameshot &
