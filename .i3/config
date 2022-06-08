@@ -27,7 +27,7 @@ font pango:FiraCode Nerd Font Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec ~/.local/kitty.app/bin/kitty
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -179,7 +179,13 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
-assign [title="Google Chrome"] $ws2
+assign [class="Alacritty"] $ws1
+assign [class="firefox"] $ws2
+assign [class="signal"] $ws3
+assign [class="microsoft teams - preview"] $ws3
+assign [class="discord"] $ws3
+assign [class="Thunderbird"] $ws4
+assign [class="1password"] $ws5
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -226,7 +232,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-#    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym l exec --no-startup-id i3lock, mode "default"
 #    bindsym s exec --no-startup-id i3exit suspend, mode "default"
 #    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
 #    bindsym e exec --no-startup-id i3exit logout, mode "default"
@@ -268,14 +274,14 @@ mode "resize" {
 
 # Autostart applications
 exec --no-startup-id nitrogen --restore
-# exec --no-startup-id blueman-applet
-# exec_always --no-startup-id sbxkb
-#exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
-#exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+exec --no-startup-id xset r rate 225 25
+exec --no-startup-id xset m default
+exec --no-startup-id xinput set-prop 'pointer:Razer Razer Basilisk' 'libinput Accel Speed' -0.75
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
