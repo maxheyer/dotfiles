@@ -48,7 +48,20 @@ local function packer_startup()
     end,
   }
 
-  use 'github/copilot.vim'
+  use {
+    "zbirenbaum/copilot.lua",
+    event = {"VimEnter"},
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup()
+      end, 100)
+    end,
+  }
+
+  use {
+    "zbirenbaum/copilot-cmp",
+    module = "copilot_cmp",
+  }
 
   -- PHP
   use {
@@ -103,13 +116,6 @@ local function packer_startup()
   }
 
   -- Themes
-  use 'jaredgorski/SpaceCamp'
-  use 'ghifarit53/tokyonight-vim'
-  use {
-    "mcchrish/zenbones.nvim",
-    requires = "rktjmp/lush.nvim"
-  }
-  use "rafamadriz/neon"
   use({
 	"catppuccin/nvim",
 	as = "catppuccin"
