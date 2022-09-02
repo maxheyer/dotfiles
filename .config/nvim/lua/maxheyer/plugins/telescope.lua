@@ -20,6 +20,7 @@ local function init()
         sorting_strategy = "descending",
         layout_strategy = "vertical",
         layout_config = {
+          vertical = { width = 0.8 },
           horizontal = {
             mirror = false,
           },
@@ -40,6 +41,7 @@ local function init()
         file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
         grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
         qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+        theme = "ivy",
       },
       pickers = {
             live_grep = {
@@ -53,12 +55,31 @@ local function init()
             },
             git_status = {
                 theme = "ivy",
-            }
+            },
+            lsp_references = {
+                theme = "ivy",
+            },
+            lsp_document_symbols = {
+                theme = "ivy",
+            },
+            lsp_workspace_symbols = {
+                theme = "ivy",
+            },
+            diagnostics = {
+                theme = "ivy",
+            },
+            lsp_implementations = {
+                theme = "ivy",
+            },
+            lsp_definitions = {
+                theme = "ivy",
+            },
+
       },
       extensions = {
         file_browser = {
            theme = "ivy",
-        }
+        },
     },
   }
 
@@ -70,7 +91,7 @@ local function init()
   map('n', '<leader>ff', '<CMD>:Telescope find_files<CR>', options)
   map('n', '<leader>fl', '<CMD>lua require("telescope.builtin").live_grep()<CR>', options)
   map('n', '<leader>fb', '<CMD>lua require("telescope.builtin").buffers()<CR>', options)
-  map('n', '<leader>fh', '<CMD>lua require("telescope.builtin").help_tags()<CR>', options)
+  map('n', '<leader>fh', '<CMD>lua require("telescope.builtin").lsp_workspace_symbols()<CR>', options)
   map('n', '<leader>fd', '<CMD>lua require("telescope.builtin").lsp_workspace_diagnostics()<CR>', options)
   map('n', '<leader>fr', '<CMD>lua require("telescope.builtin").registers()<CR>', options)
   map('n', '<leader>ft', '<CMD>lua require("telescope.builtin").treesitter()<CR>', options)
