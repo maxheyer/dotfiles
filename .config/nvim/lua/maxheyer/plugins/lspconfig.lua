@@ -76,7 +76,8 @@ local function init()
     "jsonls", -- tbi
     "tsserver", -- tbi
     "rust_analyzer",
-    "gopls"
+    "gopls",
+    "vuels"
   }
 
   for _, server in pairs(lspconfig_servers) do
