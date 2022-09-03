@@ -48,21 +48,6 @@ local function packer_startup()
     end,
   }
 
-  use {
-    "zbirenbaum/copilot.lua",
-    event = {"VimEnter"},
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup()
-      end, 100)
-    end,
-  }
-
-  use {
-    "zbirenbaum/copilot-cmp",
-    module = "copilot_cmp",
-  }
-
   -- PHP
   use {
     'praem90/nvim-phpcsf',
@@ -117,8 +102,8 @@ local function packer_startup()
 
   -- Themes
   use({
-	"catppuccin/nvim",
-	as = "catppuccin"
+    "catppuccin/nvim",
+    as = "catppuccin"
   })
 
   use {
