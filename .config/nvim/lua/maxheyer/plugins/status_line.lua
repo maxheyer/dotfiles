@@ -29,7 +29,6 @@ local function init()
     -- Config
     local config = {
       options = {
-        theme = "neon",
         -- Disable sections and component separators
         component_separators = "",
         section_separators = "",
