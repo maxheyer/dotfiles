@@ -66,6 +66,7 @@ local function packer_startup()
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-cmdline',
+      'ray-x/cmp-treesitter',
 
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
@@ -81,6 +82,7 @@ local function packer_startup()
   use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
+  use 'nvim-telescope/telescope-fzy-native.nvim'
   use {
     'nvim-telescope/telescope.nvim',
     config = function ()

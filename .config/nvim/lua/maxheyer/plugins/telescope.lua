@@ -31,6 +31,7 @@ local function init()
         file_sorter =  require'telescope.sorters'.get_fuzzy_file,
         file_ignore_patterns = {},
         generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
+        generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
         winblend = 0,
         border = {},
         color_devicons = true,
@@ -103,6 +104,7 @@ local function init()
 
   require'telescope'.load_extension "file_browser"
   require'telescope'.load_extension "dap"
+  require'telescope'.load_extension "fzy_native"
 end
 
 return {
