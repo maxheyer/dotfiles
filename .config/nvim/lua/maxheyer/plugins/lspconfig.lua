@@ -35,11 +35,6 @@ buf_set_keymap('n', 'ds', '<cmd>lua require("telescope.builtin").lsp_document_sy
       hi LspReferenceRead cterm=bold ctermbg=237 guibg=#45403d
       hi LspReferenceText cterm=bold ctermbg=237 guibg=#45403d
       hi LspReferenceWrite cterm=bold ctermbg=237 guibg=#45403d
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
 
       autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = '> ', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
     ]], false)
