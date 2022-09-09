@@ -145,6 +145,13 @@ local function packer_startup()
   use 'ryanoasis/vim-devicons'
 
   use 'editorconfig/editorconfig-vim'
+
+  use {
+    'romgrk/barbar.nvim',
+    config = function ()
+      require'maxheyer.plugins.barbar'.init()
+    end
+  }
 end
 
 local function init()
