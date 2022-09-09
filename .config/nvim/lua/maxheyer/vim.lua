@@ -52,6 +52,9 @@ local function set_keymaps()
   local options = { noremap = false }
 
   map('n', 'zz', '<CMD>:update<CR>', options)
+  map("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", options)
+  map("v", "J", ":m '>+1<CR>gv=gv", options)
+  map("v", "K", ":m '<-2<CR>gv=gv", options)
 end
 
 
