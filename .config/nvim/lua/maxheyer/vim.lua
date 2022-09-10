@@ -39,6 +39,7 @@ local function set_vim_o()
   vim.cmd('set smarttab')
   vim.cmd('set updatetime=10')
   vim.cmd('set nocursorline')
+  vim.cmd('set mouse=a')
 end
 
 local function set_vim_wo()
