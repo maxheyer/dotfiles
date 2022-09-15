@@ -48,14 +48,6 @@ local function packer_startup()
     end,
   }
 
-  -- PHP
-  use {
-    'praem90/nvim-phpcsf',
-    config = function ()
-      require'maxheyer.plugins.php'.init()
-    end,
-  }
-
   -- Completion
   use {
     'hrsh7th/nvim-cmp',
