@@ -93,7 +93,7 @@ local function init()
 
   -- Builtin
   map('n', '<leader>fe', '<CMD>lua require("telescope").extensions.file_browser.file_browser({ cwd = vim.fn.expand("%:p:h") })<CR>', options)
-  map('n', '<leader>ff', '<CMD>:Telescope find_files<CR>', options)
+  map('n', '<leader>ff', '<CMD>lua require("telescope.builtin").find_files({hidden = true})<CR>', options)
   map('n', '<leader>fl', '<CMD>lua require("telescope.builtin").live_grep()<CR>', options)
   map('n', '<leader>fb', '<CMD>lua require("telescope.builtin").buffers()<CR>', options)
   map('n', '<leader>fh', '<CMD>lua require("telescope.builtin").lsp_workspace_symbols()<CR>', options)
@@ -101,6 +101,7 @@ local function init()
   map('n', '<leader>fr', '<CMD>lua require("telescope.builtin").registers()<CR>', options)
   map('n', '<leader>ft', '<CMD>lua require("telescope.builtin").treesitter()<CR>', options)
   map('n', '<leader>fg', '<CMD>lua require("telescope.builtin").git_status()<CR>', options)
+  map('n', '<leader>gb', '<CMD>lua require("telescope.builtin").git_branches()<CR>', options)
 
   -- Extensions
   map('n', '<leader>fs', '<CMD>lua require("telescope").extensions["session-lens"].search_session()<CR>', options)
