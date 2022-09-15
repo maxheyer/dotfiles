@@ -119,7 +119,7 @@ local function packer_startup()
   use {
     'hoob3rt/lualine.nvim',
     config = function ()
-      require'maxheyer.plugins.status_line'.init()
+      -- require'maxheyer.plugins.status_line'.init()
     end
   }
 
