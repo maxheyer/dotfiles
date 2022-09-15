@@ -3,19 +3,18 @@ local function on_attach(client, bufnr)
 
   -- Mappings
   local opts = { noremap = true, silent = true }
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-buf_set_keymap('n', 'ds', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>', opts)
+  buf_set_keymap('n', 'gD', '<Cmd>Lspsaga peek_definition<CR>', opts)
+  buf_set_keymap('n', 'gd', '<Cmd>Lspsaga lsp_finder<CR>', opts)
+  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'ds', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua require("telescope.builtin").lsp_implementations()<cr>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>Lspsaga hover_doc<CR>', opts)
   buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<cr>', opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>Lspsaga rename<CR>', opts)
+  buf_set_keymap('n', '<space>ca', '<cmd>Lspsaga code_action<cr>', opts)
   buf_set_keymap('n', '<space>e', '<cmd>lua require("telescope.builtin").diagnostics()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
@@ -72,7 +71,8 @@ local function init()
     "tsserver", -- tbi
     "rust_analyzer",
     "gopls",
-    "vuels"
+    "vuels",
+    "prismals"
   }
 
   for _, server in pairs(lspconfig_servers) do

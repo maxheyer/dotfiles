@@ -141,6 +141,24 @@ local function packer_startup()
       require'maxheyer.plugins.barbar'.init()
     end
   }
+
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup({size = 30, open_mapping = [[<c-a>]]})
+  end}
+
+  use {"j-hui/fidget.nvim", config = function()
+    require"fidget".setup{}
+  end}
+
+  use {"glepnir/lspsaga.nvim", config = function()
+    require"lspsaga".init_lsp_saga({
+      finder_request_timeout = 10000
+    })
+  end}
+
+    use {"ray-x/lsp_signature.nvim", config = function()
+    require"lsp_signature".setup{}
+  end}
 end
 
 local function init()
