@@ -42,11 +42,13 @@ local function set_vim_o()
   vim.cmd('set laststatus=0')
   vim.cmd('set noruler')
   vim.cmd('set noshowcmd')
+  vim.cmd('set textwidth=120')
+  vim.cmd('set columns=120')
 end
 
 local function set_vim_wo()
   vim.wo.relativenumber = true
-  vim.wo.wrap = false
+  vim.wo.wrap = true
 end
 
 local function set_keymaps()
@@ -66,6 +68,13 @@ local function init()
   set_vim_o()
   set_vim_wo()
   set_keymaps()
+
+vim.api.nvim_create_autocmd("CursorHold", {
+    pattern = "*",
+    callback = function()
+      vim.diagnostic.open_float({scope="line"})
+    end,
+  })
 end
 
 return {
