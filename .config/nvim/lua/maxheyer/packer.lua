@@ -127,13 +127,6 @@ local function packer_startup()
 
   use 'editorconfig/editorconfig-vim'
 
-  use {
-    'romgrk/barbar.nvim',
-    config = function ()
-      require'maxheyer.plugins.barbar'.init()
-    end
-  }
-
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup({size = 30, open_mapping = [[<c-a>]]})
   end}
