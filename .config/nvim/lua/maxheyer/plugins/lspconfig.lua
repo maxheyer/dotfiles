@@ -72,11 +72,11 @@ local function init()
     "rust_analyzer",
     "gopls",
     "vuels",
-    "prismals"
+    "prismals",
   }
 
+  local config = make_config()
   for _, server in pairs(lspconfig_servers) do
-    local config = make_config()
     require'lspconfig'[server].setup(config)
   end
 end
