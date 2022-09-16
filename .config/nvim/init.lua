@@ -1,2 +1,1 @@
-require 'maxheyer'.init()
-
+require("maxheyer")

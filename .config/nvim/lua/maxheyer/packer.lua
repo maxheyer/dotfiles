@@ -1,156 +1,50 @@
-local cmd = vim.api.nvim_command
-local fn = vim.fn
-local packer = nil
+-- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
-local function packer_verify()
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+-- Only required if you have packer configured as `opt`
+vim.cmd [[packadd packer.nvim]]
 
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path })
-    cmd 'packadd packer.nvim'
-  end
-end
+return require("packer").startup(function(use)
+    -- Packer can manage itself
+    use("wbthomason/packer.nvim")
 
-local function packer_startup()
-  if packer == nil then
-    packer = require'packer'
-    packer.init()
-  end
+    -- Icons
+    use("kyazdani42/nvim-web-devicons")
+    use("ryanoasis/vim-devicons")
 
-  local use = packer.use
-  packer.reset()
+    -- LSP
+    use("neovim/nvim-lspconfig")
+    use("onsails/lspkind-nvim")
+    use("nvim-lua/lsp_extensions.nvim")
+    use("glepnir/lspsaga.nvim")
+    use("j-hui/fidget.nvim")
+    use("ray-x/lsp_signature.nvim")
 
-  -- Packer
-  use 'wbthomason/packer.nvim'
+    -- Telescope
+    use("nvim-lua/plenary.nvim")
+    use("nvim-lua/popup.nvim")
+    use("nvim-telescope/telescope-file-browser.nvim")
+    use("nvim-telescope/telescope-fzy-native.nvim")
+    use("nvim-telescope/telescope.nvim")
 
-  -- Language Servers
-  use {
-    'neovim/nvim-lspconfig',
-    requires = {
-      'RishabhRD/popfix',
-      'RishabhRD/nvim-lsputils',
-      'nvim-lua/lsp_extensions.nvim',
-    },
-    config = function ()
-      require'maxheyer.plugins.lspconfig'.init()
-    end
-  }
-
-  -- Treesitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    requires = {
-      'romgrk/nvim-treesitter-context',
-    },
-    run = 'TSUpdate',
-    config = function ()
-      require'maxheyer.plugins.treesitter'.init()
-    end,
-  }
-
-  -- Completion
-  use {
-    'hrsh7th/nvim-cmp',
-    requires = {
-      'lukas-reineke/cmp-rg',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-nvim-lua',
-      'hrsh7th/cmp-cmdline',
-      'ray-x/cmp-treesitter',
-
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-      'rafamadriz/friendly-snippets',
-      'onsails/lspkind-nvim',
-    },
-    config = function ()
-      require'maxheyer.plugins.completion'.init()
-    end
-  }
-
-  -- Telescope
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-telescope/telescope-file-browser.nvim'
-  use 'nvim-telescope/telescope-fzy-native.nvim'
-  use {
-    'nvim-telescope/telescope.nvim',
-    config = function ()
-      require'maxheyer.plugins.telescope'.init()
-    end
-  }
-  -- Debug
-  use {
-    'mfussenegger/nvim-dap',
-    requires = {
-        'leoluz/nvim-dap-go',
-        'rcarriga/nvim-dap-ui',
-        'nvim-telescope/telescope-dap.nvim'
-    },
-    config = function ()
-      require'maxheyer.plugins.dap'.init()
-    end
-  }
-
-  -- Themes
-  use({
-    "catppuccin/nvim",
-    as = "catppuccin"
-  })
-
-  use {
-    'folke/lsp-colors.nvim',
-    config = function ()
-      require'maxheyer.plugins.colorscheme'.init()
-    end
-  }
-
-  -- Utilities
-  use {
-    'hoob3rt/lualine.nvim',
-    config = function ()
-      -- require'maxheyer.plugins.status_line'.init()
-    end
-  }
-
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function ()
-      require'maxheyer.plugins.gitsigns'.init()
-    end
-  }
-
-  use 'kyazdani42/nvim-web-devicons'
-  use 'ryanoasis/vim-devicons'
-
-  use 'editorconfig/editorconfig-vim'
-
-  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-    require("toggleterm").setup({size = 30, open_mapping = [[<c-a>]]})
-  end}
-
-  use {"j-hui/fidget.nvim", config = function()
-    require"fidget".setup{}
-  end}
-
-  use {"glepnir/lspsaga.nvim", config = function()
-    require"lspsaga".init_lsp_saga({
-      finder_request_timeout = 10000
+    -- Treesitter
+    use("nvim-treesitter/nvim-treesitter", {
+        run = ":TSUpdate"
     })
-  end}
 
-    use {"ray-x/lsp_signature.nvim", config = function()
-    require"lsp_signature".setup{}
-  end}
-end
+    -- Completion
+    use("L3MON4D3/LuaSnip")
+    use("rafamadriz/friendly-snippets")
+    use("saadparwaiz1/cmp_luasnip")
+    use("hrsh7th/cmp-nvim-lsp")
+    use("hrsh7th/cmp-buffer")
+    use("hrsh7th/nvim-cmp")
 
-local function init()
-  packer_verify()
-  packer_startup()
-end
+    -- Colorscheme
+    use("catppuccin/nvim")
 
-return {
-  init = init
-}
+    -- Others
+    use("lewis6991/gitsigns.nvim")
+    use("simrat39/symbols-outline.nvim")
+    use("akinsho/toggleterm.nvim")
+    use("editorconfig/editorconfig-vim")
+end)
