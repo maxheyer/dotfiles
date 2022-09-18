@@ -51,6 +51,10 @@ return require("packer").startup(function(use)
   -- Status line
   use("nvim-lualine/lualine.nvim")
 
+  -- autopairs
+  use("windwp/nvim-autopairs")
+  use("windwp/nvim-ts-autotag")
+
   -- Others
   use("lewis6991/gitsigns.nvim")
   use("simrat39/symbols-outline.nvim")
