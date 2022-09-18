@@ -6,3 +6,11 @@ vim.api.nvim_create_autocmd("CursorHold", {
     vim.diagnostic.open_float({scope="line"})
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function()
+    vim.cmd(":normal gg=G")
+  end,
+})
+
