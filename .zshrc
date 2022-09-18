@@ -109,6 +109,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias lg="lazygit"
+alias vim="nvim"
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
