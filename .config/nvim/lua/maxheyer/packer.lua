@@ -45,6 +45,7 @@ return require("packer").startup(function(use)
   use("bbenzikry/snazzybuddy.nvim")
   use("svrana/neosolarized.nvim")
   use("catppuccin/nvim")
+  use("Yagua/nebulous.nvim")
 
 
   -- Status line
