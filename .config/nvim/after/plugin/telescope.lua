@@ -45,45 +45,8 @@ require("telescope").setup{
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
     grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
     qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-    theme = "dropdown",
-  },
-  pickers = {
-    live_grep = {
-      theme = "dropdown",
-    },
-    buffers = {
-      theme = "dropdown",
-    },
-    find_files = {
-      theme = "dropdown",
-    },
-    git_status = {
-      theme = "dropdown",
-    },
-    lsp_references = {
-      theme = "dropdown",
-    },
-    lsp_document_symbols = {
-      theme = "dropdown",
-    },
-    lsp_workspace_symbols = {
-      theme = "dropdown",
-    },
-    diagnostics = {
-      theme = "dropdown",
-    },
-    lsp_implementations = {
-      theme = "dropdown",
-    },
-    lsp_definitions = {
-      theme = "dropdown",
-    },
-
   },
   extensions = {
-    file_browser = {
-      theme = "dropdown",
-    },
     fzf = {
       fuzzy = true,                    -- false will only do exact matching
       override_generic_sorter = true,  -- override the generic sorter
@@ -98,6 +61,7 @@ local map = vim.api.nvim_set_keymap
 local options = { noremap = true }
 
 -- Builtin
+map("n", "gr", '<cmd>lua require("telescope.builtin").lsp_references()<cr>', options)
 map("n", "<leader>fe", '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = vim.fn.expand("%:p:h") })<cr>', options)
 map("n", "<leader>ff", '<cmd>lua require("telescope.builtin").find_files({hidden = true})<cr>', options)
 map("n", "<leader>fl", '<cmd>lua require("telescope.builtin").live_grep()<cr>', options)

@@ -1,7 +1,8 @@
 local lspkind = require("lspkind")
 
 require("luasnip.loaders.from_vscode").lazy_load()
-require("fidget").setup{}
+require("fidget").setup()
+require("treesitter-context").setup()
 
 local luasnip = require("luasnip")
 
@@ -98,7 +99,7 @@ local function lsp_config()
       'additionalTextEdits',
     }
   }
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+  capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
   local on_attach = function(client, bufnr)
     require "lsp_signature".on_attach(signature_setup, bufnr)
@@ -130,11 +131,15 @@ for _, server in pairs(lspconfig_servers) do
   require'lspconfig'[server].setup(config)
 end
 
+require'lspconfig'.omnisharp.setup {
+    cmd = { "dotnet", "~/.omnisharp/OmniSharp.dll" },
+}
+
 local map = vim.api.nvim_set_keymap
 
 local opts = { noremap = true, silent = true }
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+map('n', 'K', '<cmd>Lspsaga hover_doc<cr>', opts)
 map('n', '<space>rn', '<cmd>Lspsaga rename<cr>', opts)
 map('n', '<space>ca', '<cmd>Lspsaga code_action<cr>', opts)
