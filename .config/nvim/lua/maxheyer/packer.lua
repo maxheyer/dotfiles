@@ -15,7 +15,7 @@ return require("packer").startup(function(use)
   use("neovim/nvim-lspconfig")
   use("onsails/lspkind-nvim")
   use("nvim-lua/lsp_extensions.nvim")
-  use("glepnir/lspsaga.nvim")
+  use("lewis6991/hover.nvim")
   use("j-hui/fidget.nvim")
   use("ray-x/lsp_signature.nvim")
 
@@ -47,6 +47,7 @@ return require("packer").startup(function(use)
   use("svrana/neosolarized.nvim")
   use("catppuccin/nvim")
   use("Yagua/nebulous.nvim")
+  use("ray-x/aurora")
 
 
   -- Status line

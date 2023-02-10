@@ -140,6 +140,27 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
 map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-map('n', 'K', '<cmd>Lspsaga hover_doc<cr>', opts)
-map('n', '<space>rn', '<cmd>Lspsaga rename<cr>', opts)
-map('n', '<space>ca', '<cmd>Lspsaga code_action<cr>', opts)
+map('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+map('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+
+require("hover").setup {
+  init = function()
+      -- Require providers
+      require("hover.providers.lsp")
+      -- require('hover.providers.gh')
+      -- require('hover.providers.gh_user')
+      -- require('hover.providers.jira')
+      -- require('hover.providers.man')
+      -- require('hover.providers.dictionary')
+  end,
+  preview_opts = {
+      border = nil
+  },
+  -- Whether the contents of a currently open hover window should be moved
+  -- to a :h preview-window when pressing the hover keymap.
+  preview_window = false,
+  title = true
+}
+
+-- Setup keymaps
+vim.keymap.set("n", "K", require("hover").hover, {desc = "hover.nvim"})

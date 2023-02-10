@@ -1,6 +1,1 @@
-require("nebulous").setup {
-  variant = "night",
-  disable = {
-    background = false
-  }
-}
+vim.cmd.colorscheme "catppuccin"
