@@ -1,7 +1,11 @@
 local lspkind = require("lspkind")
 
 require("luasnip.loaders.from_vscode").lazy_load()
-require("fidget").setup()
+require("fidget").setup {
+  window = {
+    blend = 0,
+  }
+}
 require("treesitter-context").setup()
 
 local luasnip = require("luasnip")
@@ -120,9 +124,9 @@ local lspconfig_servers = {
   "jsonls",
   "tsserver",
   "rust_analyzer",
-  "gopls",
   "vuels",
   "prismals",
+  "wgsl_analyzer"
 }
 
 local config = lsp_config()

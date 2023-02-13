@@ -63,4 +63,6 @@ return require("packer").startup(function(use)
   use("akinsho/toggleterm.nvim")
   use("editorconfig/editorconfig-vim")
   use("TimUntersberger/neogit")
+
+  use("folke/trouble.nvim")
 end)
