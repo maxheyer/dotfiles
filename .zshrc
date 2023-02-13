@@ -119,11 +119,4 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 export VISUAL=nvim
 export HOSTNAME=$(hostname)
 
-export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
-
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
-fi
-if [[ ! "$SSH_AUTH_SOCK" ]]; then
-    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
-fi
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
