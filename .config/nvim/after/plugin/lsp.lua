@@ -107,6 +107,7 @@ local function lsp_config()
 
   local on_attach = function(client, bufnr)
     require "lsp_signature".on_attach(signature_setup, bufnr)
+    require("lsp-inlayhints").on_attach(client, bufnr)
   end
 
   return {
@@ -123,7 +124,6 @@ local lspconfig_servers = {
   "html",
   "jsonls",
   "tsserver",
-  "rust_analyzer",
   "vuels",
   "prismals",
   "wgsl_analyzer"
@@ -131,13 +131,22 @@ local lspconfig_servers = {
 
 local config = lsp_config()
 
+function merge_config(t1, t2)
+   for k,v in ipairs(t2) do
+      table.insert(t1, v)
+   end 
+ 
+   return t1
+end
+
+
 for _, server in pairs(lspconfig_servers) do
   require'lspconfig'[server].setup(config)
 end
 
-require'lspconfig'.omnisharp.setup {
-    cmd = { "dotnet", "~/.omnisharp/OmniSharp.dll" },
-}
+require'lspconfig'['rust_analyzer'].setup(merge_config(config, {
+  procMacro = { enable = true }
+}))
 
 local map = vim.api.nvim_set_keymap
 

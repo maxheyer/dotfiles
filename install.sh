@@ -2,7 +2,6 @@
 
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/nvim
-mkdir -p ~/.config/phpactor
 
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/.zshrc ~/.zshrc

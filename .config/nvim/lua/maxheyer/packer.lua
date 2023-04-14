@@ -18,6 +18,7 @@ return require("packer").startup(function(use)
   use("lewis6991/hover.nvim")
   use("j-hui/fidget.nvim")
   use("ray-x/lsp_signature.nvim")
+  use("lvimuser/lsp-inlayhints.nvim")
 
   -- Telescope
   use("nvim-lua/plenary.nvim")

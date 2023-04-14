@@ -32,7 +32,7 @@ vim.opt.updatetime = 50
 
 vim.opt.shortmess:append("c")
 
-vim.opt.colorcolumn = "120"
+-- vim.opt.colorcolumn = "120"
 
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
