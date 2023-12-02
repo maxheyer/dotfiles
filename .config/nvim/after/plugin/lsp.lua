@@ -1,11 +1,7 @@
 local lspkind = require("lspkind")
 
 require("luasnip.loaders.from_vscode").lazy_load()
-require("fidget").setup {
-  window = {
-    blend = 0,
-  }
-}
+require("fidget").setup()
 require("treesitter-context").setup()
 
 local luasnip = require("luasnip")
@@ -126,7 +122,9 @@ local lspconfig_servers = {
   "tsserver",
   "vuels",
   "prismals",
-  "wgsl_analyzer"
+  "wgsl_analyzer",
+  "terraformls",
+  "lua_ls"
 }
 
 local config = lsp_config()
@@ -138,7 +136,6 @@ function merge_config(t1, t2)
  
    return t1
 end
-
 
 for _, server in pairs(lspconfig_servers) do
   require'lspconfig'[server].setup(config)
