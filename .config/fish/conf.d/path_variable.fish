@@ -1,5 +1,5 @@
 set PATH $HOME/.phpactor/bin $PATH
-set PATH $HOME/.rustup/toolchains/nightly-x86_64-apple-darwin/bin $PATH
+set PATH $HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin $PATH
 set PATH $HOME/go/bin $PATH
 set PATH $HOME/.composer/vendor/bin $PATH
 set PATH $HOME/.local/bin $PATH
