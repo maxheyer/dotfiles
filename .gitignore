@@ -4,4 +4,4 @@
 !.zshrc
 !.config/nvim/init.vim
 .config/nvim/lua/lua
-
+**/*.DS_Store
