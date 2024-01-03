@@ -19,7 +19,6 @@ require("telescope").setup{
     sorting_strategy = "descending",
     layout_strategy = "vertical",
     layout_config = {
-      vertical = { width = 0.8 },
       horizontal = {
         mirror = false,
       },
@@ -31,8 +30,8 @@ require("telescope").setup{
     file_ignore_patterns = {
       "node_modules",
       "vendor",
-      ".git",
-      ".idea",
+      ".git/",
+      ".idea/",
     },
     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
     winblend = 0,
