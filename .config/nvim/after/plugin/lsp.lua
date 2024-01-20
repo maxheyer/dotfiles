@@ -124,7 +124,8 @@ local lspconfig_servers = {
   "prismals",
   "wgsl_analyzer",
   "terraformls",
-  "lua_ls"
+  "lua_ls",
+  "bufls"
 }
 
 local config = lsp_config()

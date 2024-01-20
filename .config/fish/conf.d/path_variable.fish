@@ -5,4 +5,5 @@ set PATH $HOME/.composer/vendor/bin $PATH
 set PATH $HOME/.local/bin $PATH
 set PATH $HOME/.krew/bin $PATH
 set PATH $HOME/.krew/bin $PATH
+set PATH $HOME/.cargo/bin $PATH
 set PATH /opt/homebrew/bin/ $PATH
