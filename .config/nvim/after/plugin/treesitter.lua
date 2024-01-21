@@ -1,19 +1,22 @@
+require("nvim-treesitter.install").prefer_git = true
+
 require'nvim-treesitter.configs'.setup{
-    ensure_installed = "all",
-    ignore_install = { "phpdoc", "tree-sitter-phpdoc" },
-    highlight = {
-        enable = true
+  prefer_git = true,
+  ensure_installed = "all",
+  ignore_install = { "phpdoc", "tree-sitter-phpdoc", "tlaplus", "ruby" },
+  highlight = {
+    enable = true
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
     },
-    incremental_selection = {
-        enable = true,
-        keymaps = {
-            init_selection = "gnn",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
-        },
-    },
-    indent = {
-        enable = true
-    }
+  },
+  indent = {
+    enable = true
+  }
 }
