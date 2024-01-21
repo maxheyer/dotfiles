@@ -6,6 +6,9 @@ import = [
   # "~/.config/alacritty/catppuccin-latte.toml"
 ]
 
+[window]
+opacity = 0.9
+
 [font]
 size = 14
 normal = { family = "Hack Nerd Font" }
