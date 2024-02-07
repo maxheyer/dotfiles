@@ -3,7 +3,6 @@ require("nvim-treesitter.install").prefer_git = true
 require'nvim-treesitter.configs'.setup{
   prefer_git = true,
   ensure_installed = "all",
-  ignore_install = { "phpdoc", "tree-sitter-phpdoc", "tlaplus", "ruby" },
   highlight = {
     enable = true
   },
