@@ -61,7 +61,7 @@ local options = { noremap = true }
 
 -- Builtin
  map("n", "gr", '<cmd>lua require("telescope.builtin").lsp_references()<cr>', options)
-map("n", "<leader>fe", '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = vim.fn.expand("%:p:h") })<cr>', options)
+map("n", "<leader>fe", '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = vim.fn.expand("%:p:h"), hidden = true })<cr>', options)
 map("n", "<leader>ff", '<cmd>lua require("telescope.builtin").find_files({hidden = true})<cr>', options)
 map("n", "<leader>fl", '<cmd>lua require("telescope.builtin").live_grep()<cr>', options)
 map("n", "<leader>fb", '<cmd>lua require("telescope.builtin").buffers()<cr>', options)
