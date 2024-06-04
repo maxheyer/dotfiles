@@ -23,7 +23,7 @@ cmp.setup({
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.abort(),
     ["<cr>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    ["<Tab>"] = cmp.mapping(function(fallback)
+    ["<C-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_locally_jumpable() then
@@ -130,6 +130,19 @@ local lspconfig_servers = {
 }
 
 local config = lsp_config()
+
+
+require'lspconfig.configs'.blade = {
+  default_config = {
+    -- Path to the executable: laravel-dev-generators
+    cmd = { "laravel-dev-tools", "lsp" },
+    filetypes = {'blade'};
+    root_dir = function(fname)
+      return require'lspconfig'.util.find_git_ancestor(fname)
+    end;
+    settings = {};
+  };
+}
 
 function merge_config(t1, t2)
    for k,v in ipairs(t2) do
