@@ -63,7 +63,7 @@ return require("packer").startup(function(use)
   use("simrat39/symbols-outline.nvim")
   use("akinsho/toggleterm.nvim")
   use("editorconfig/editorconfig-vim")
-  use("TimUntersberger/neogit")
+  use{"TimUntersberger/neogit"}
 
   use("folke/trouble.nvim")
 end)
