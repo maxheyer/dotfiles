@@ -1,7 +1,6 @@
 local lspkind = require("lspkind")
 
 require("luasnip.loaders.from_vscode").lazy_load()
-require("fidget").setup()
 require("treesitter-context").setup()
 
 local luasnip = require("luasnip")
@@ -102,7 +101,6 @@ local function lsp_config()
   capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
   local on_attach = function(client, bufnr)
-    require "lsp_signature".on_attach(signature_setup, bufnr)
     require("lsp-inlayhints").on_attach(client, bufnr)
   end
 

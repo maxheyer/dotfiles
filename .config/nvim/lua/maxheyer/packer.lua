@@ -16,9 +16,12 @@ return require("packer").startup(function(use)
   use("onsails/lspkind-nvim")
   use("nvim-lua/lsp_extensions.nvim")
   use("lewis6991/hover.nvim")
-  use("j-hui/fidget.nvim")
   use("ray-x/lsp_signature.nvim")
   use("lvimuser/lsp-inlayhints.nvim")
+  use {
+      'ricardoramirezr/lali-components.nvim',
+      ft = 'blade'
+  }
 
   -- Telescope
   use("nvim-lua/plenary.nvim")
@@ -50,20 +53,48 @@ return require("packer").startup(function(use)
   use("Yagua/nebulous.nvim")
   use("ray-x/aurora")
 
-
   -- Status line
   use("nvim-lualine/lualine.nvim")
 
   -- autopairs
   use("windwp/nvim-autopairs")
-  use("windwp/nvim-ts-autotag")
 
   -- Others
   use("lewis6991/gitsigns.nvim")
   use("simrat39/symbols-outline.nvim")
-  use("akinsho/toggleterm.nvim")
   use("editorconfig/editorconfig-vim")
   use{"TimUntersberger/neogit"}
 
   use("folke/trouble.nvim")
+
+  use({
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  })
+
+  use({
+    "stevearc/dressing.nvim",
+    config = function()
+      require("dressing").setup()
+    end,
+  })
+
+  use("MunifTanjim/nui.nvim")
+  use({
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({
+        lsp = {
+          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+          },
+        }
+      })
+    end,
+  })
 end)

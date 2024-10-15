@@ -6,7 +6,6 @@ require("catppuccin").setup({
         cmp = true,
         gitsigns = true,
         telescope = true,
-        fidget = true
   }
 })
 
