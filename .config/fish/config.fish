@@ -3,5 +3,5 @@ if status is-interactive
 end
 kubectl completion fish | source
 
-starship init fish | source
 
+zoxide init fish | source
