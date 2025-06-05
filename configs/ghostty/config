@@ -1,0 +1,17 @@
+theme = ENCOM
+font-family = Monolisa Nerd Font
+font-size = 16
+window-inherit-font-size = false
+unfocused-split-opacity = 1.0
+
+keybind = cmd+s>r=reload_config
+keybind = cmd+s>x=close_surface
+
+window-height = 46
+window-width = 170
+macos-titlebar-style = tabs
+
+keybind = cmd+s>l=goto_split:right
+keybind = cmd+s>h=goto_split:left
+keybind = cmd+s>j=goto_split:bottom
+keybind = cmd+s>k=goto_split:top
