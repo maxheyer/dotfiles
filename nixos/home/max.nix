@@ -1,5 +1,15 @@
 { config, pkgs, zen-browser, ghostty, system, lib, ... }:
+  let
+  dotfilesRepo = pkgs.fetchFromGitHub {
+    owner = "maxheyer";
+    repo = "dotfiles";
+    rev = "master";
+    sha256 = "sha256-Zayhv/k3erBq+YBWdE12Bm9Bs2sei8uJvCxfMAHFp+Q=";
+  };
+  nvimConfig = "${dotfilesRepo}/configs/nvim";
+in
 {
+
   home.username = "max";
   home.homeDirectory = "/home/max";
 
@@ -12,6 +22,10 @@
       set -g fish_greeting ""
       zoxide init fish | source
     '';
+  };
+  home.file.".config/nvim" = {
+    source = nvimConfig;
+    recursive = true;
   };
 
   # Tools
@@ -33,6 +47,9 @@
     tree
     zen-browser.packages.${system}.default
     ghostty.packages.${system}.default
+    discord-ptb
+    fzf
+    ripgrep
   ];
 
   # Git config
@@ -44,23 +61,6 @@
       co = "checkout";
       s = "status";
       ci = "commit";
-    };
-  };
-
-  # Theming: Catppuccin
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Catppuccin-Mocha-Compact-Lavender-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "lavender" ];
-        size = "compact";
-        variant = "mocha";
-      };
-    };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
     };
   };
 

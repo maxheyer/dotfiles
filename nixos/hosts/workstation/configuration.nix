@@ -51,6 +51,15 @@
   programs.neovim.enable = true;
   programs.command-not-found.enable = false;
 
+
+programs.steam = {
+  enable = true;
+  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+};
+
+
   services.openssh.enable = true;
   services.printing.enable = false;
 
@@ -131,7 +140,23 @@
   gnomeExtensions.appindicator
   gnomeExtensions.dash-to-dock
   gnomeExtensions.user-themes
-  ];
+
+  gcc
+  gnumake
+  pkg-config
+ 
+  go
+  python3
+
+  rustc
+  cargo
+  rustfmt
+  clippy
+
+  nodejs_latest  # or nodejs_18, nodejs_latest, etc.
+  yarn
+  pnpm
+];
 
 environment.gnome.excludePackages = with pkgs; [
   # Remove unwanted GNOME packages (optional)
@@ -157,6 +182,7 @@ environment.gnome.excludePackages = with pkgs; [
       "."
       "Downloads"
       "Projects"
+      ".config/nvim"
     ];
     users.max.files = [
     ];
