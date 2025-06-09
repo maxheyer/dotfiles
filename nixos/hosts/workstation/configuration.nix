@@ -82,6 +82,11 @@ programs.steam = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  hardware.bluetooth.enable = true;
+  boot.blacklistedKernelModules = [ 
+    "btintel"
+  ];
+
   boot.kernelParams = [
     "quiet"
     "loglevel=3"
