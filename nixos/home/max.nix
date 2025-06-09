@@ -7,6 +7,8 @@
     sha256 = "sha256-Zayhv/k3erBq+YBWdE12Bm9Bs2sei8uJvCxfMAHFp+Q=";
   };
   nvimConfig = "${dotfilesRepo}/configs/nvim";
+  fishConfig = "${dotfilesRepo}/configs/fish";
+  ghostConfig = "${dotfilesRepo}/configs/ghost";
 in
 {
 
