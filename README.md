@@ -6,3 +6,4 @@ Essential CLI tools and configurations for daily development workflow
 - fzf
 - lazygit
 - zoxide
+- posting
