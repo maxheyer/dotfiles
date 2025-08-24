@@ -1,0 +1,29 @@
+
+#font-family = Monolisa Nerd Font
+font-family = Blexmono Nerd Font
+font-size = 16
+font-thicken = true
+
+window-inherit-font-size = false
+unfocused-split-opacity = 1.0
+
+keybind = cmd+s>r=reload_config
+keybind = cmd+s>x=close_surface
+
+window-height = 46
+window-width = 170
+window-theme = system
+
+macos-titlebar-style = tabs
+
+cursor-style = block
+shell-integration-features = no-cursor
+cursor-style-blink = false
+
+keybind = cmd+s>l=goto_split:right
+keybind = cmd+s>h=goto_split:left
+keybind = cmd+s>j=goto_split:bottom
+keybind = cmd+s>k=goto_split:top
+
+custom-shader = ./shaders/retro-terminal.glsl
+custom-shader = ./shaders/bloom.glsl
