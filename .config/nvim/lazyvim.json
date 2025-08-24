@@ -1,15 +1,20 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.ai.supermaven",
     "lazyvim.plugins.extras.coding.mini-surround",
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.editor.aerial",
     "lazyvim.plugins.extras.editor.illuminate",
+    "lazyvim.plugins.extras.editor.mini-diff",
+    "lazyvim.plugins.extras.editor.mini-files",
+    "lazyvim.plugins.extras.editor.mini-move",
     "lazyvim.plugins.extras.editor.navic",
     "lazyvim.plugins.extras.editor.overseer",
     "lazyvim.plugins.extras.lang.docker",
     "lazyvim.plugins.extras.lang.git",
     "lazyvim.plugins.extras.lang.go",
     "lazyvim.plugins.extras.lang.helm",
+    "lazyvim.plugins.extras.lang.json",
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.php",
     "lazyvim.plugins.extras.lang.python",
@@ -27,8 +32,9 @@
     "lazyvim.plugins.extras.util.dot",
     "lazyvim.plugins.extras.util.mini-hipatterns"
   ],
+  "install_version": 7,
   "news": {
-    "NEWS.md": "7429"
+    "NEWS.md": "10960"
   },
-  "version": 7
+  "version": 8
 }

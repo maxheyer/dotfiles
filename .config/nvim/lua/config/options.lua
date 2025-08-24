@@ -7,4 +7,6 @@ opt.number = true
 opt.relativenumber = true
 opt.cursorline = false
 opt.cursorcolumn = false
-vim.g.lazyvim_picker = "telescope"
+vim.g.snacks_animate = false
+vim.g.root_spec = { "cwd" }
+vim.lsp.handlers["textDocument/inlayHint"] = function() end
