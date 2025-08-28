@@ -8,3 +8,4 @@ set PATH $HOME/.krew/bin $PATH
 set PATH $HOME/.cargo/bin $PATH
 set PATH /opt/homebrew/bin $PATH
 set PATH $HOME/.local/laravel-dev-tools/builds $PATH
+set PATH $HOME/.volta/bin $PATH
