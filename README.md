@@ -7,3 +7,4 @@ Essential CLI tools and configurations for daily development workflow
 - lazygit
 - zoxide
 - posting
+- k9s
