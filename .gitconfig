@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Max Heyer
-	email = max@wunder.software
+	email = mail@max.gp
 [alias]
 	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	rb = for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/
@@ -19,11 +19,11 @@
 	ff = only
 [core]
 	quotepath = false
-	excludesfile = /Users/maxheyer/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [init]
-	defaultBranch = master
+	defaultBranch = main
