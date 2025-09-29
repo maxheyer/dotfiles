@@ -1,11 +1,14 @@
-theme = catppuccin-mocha
+theme = IC Orange PPL
+
 #font-family = Monolisa Nerd Font
-font-family = Blexmono Nerd Font
+font-family = BlexMono Nerd Font
 font-size = 12
 font-thicken = true
 
 window-inherit-font-size = true
 unfocused-split-opacity = 1.0
+
+confirm-close-surface = false
 
 window-height = 46
 window-width = 170
@@ -18,3 +21,4 @@ keybind = cmd+s>l=goto_split:right
 keybind = cmd+s>h=goto_split:left
 keybind = cmd+s>j=goto_split:bottom
 keybind = cmd+s>k=goto_split:top
+keybind = shift+enter=text:\x1b\r
