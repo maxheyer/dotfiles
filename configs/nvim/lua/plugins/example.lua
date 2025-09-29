@@ -174,9 +174,24 @@ return {
     },
   },
   {
+  "ficcdaf/ashen.nvim",
+  -- optional but recommended,
+  -- pin to the latest stable release:
+  tag = "*",
+  lazy = false,
+  priority = 1000,
+  -- configuration is optional!
+  opts = {
+      transparent = true,
+      plugins = {
+        autoload = true,
+      },
+  },
+},
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "ashen",
     },
   },
   {
