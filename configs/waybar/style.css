@@ -1,0 +1,136 @@
+* {
+  border: none;
+  font-family: "BlexMono Nerd Font";
+  font-size: 12px;
+  min-height: 4px;
+  color: #ff7f11;
+  background: #000000;
+  font-weight: bold;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+#custom-kubernetes,
+#custom-mpv,
+#temperature,
+#tray,
+#cpu,
+#memory,
+#custom-netusage,
+#network,
+#battery,
+#backlight,
+#language,
+#pulseaudio,
+#clock,
+#disk,
+#privacy,
+#idle_inhibitor,
+#custom-launcher,
+#custom-lock,
+#custom-darkman {
+  margin-top: 0px;
+  margin-left: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  transition: none;
+  border-style: solid;
+  border-color: #bd93f9;
+  transition: 0.3s;
+}
+
+#custom-kubernetes:hover,
+#custom-mpv:hover,
+#cpu:hover,
+#memory:hover,
+#custom-netusage:hover,
+#network:hover,
+#battery:hover,
+#backlight:hover,
+#language:hover
+#pulseaudio:hover,
+#clock:hover,
+#disk:hover,
+#custom-launcher:hover,
+#custom-lock:hover,
+#custom-darkman:hover {
+  color: #292c3c;
+  background: #bd93f9;
+}
+
+#custom-lock {
+  margin-right: 0px;
+}
+
+#terminal.critical {
+  color: #f38ba8;
+  background: #292c3c;
+}
+
+#pulseaudio.muted {
+  color: #f38ba8;
+  background: #292c3c;
+  transition: 0.3s;
+}
+
+#pulseaudio.muted:hover {
+  background: #f38ba8;
+  color: #292c3c;
+
+}
+
+#idle_inhibitor.activated {
+  color: #89b4fa;
+  border-color: #89b4fa;
+}
+
+#idle_inhibitor.activated:hover {
+  background: #89b4fa;
+  color: #292c3c;
+  border-color: #89b4fa;
+}
+
+#idle_inhibitor.deactivated {
+  color: #bd93f9
+}
+
+#idle_inhibitor.deactivated:hover {
+  color: #292c3c;
+  background: #bd93f9;
+}
+
+#network.disconnected {
+  color: #f38ba8;
+  background: #292c3c;
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: #f38ba8;
+}
+
+#network.disconnected:hover {
+  background: #f38ba8;
+  color: #292c3c;
+}
+#tray > .tray {
+  padding: 0;
+  margin: 0 2px;
+}
+
+#tray menu {
+  margin-top: 10px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  border-radius: 10px;
+  transition: none;
+  background: #292c3c;
+  color: #bd93f9;
+  border-bottom: 3px;
+  border-style: solid;
+  border-color: #bd93f9;
+  transition: 0.3s;
+}

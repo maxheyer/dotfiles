@@ -1,0 +1,180 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  // "width": 1280, // Waybar width
+  // Choose the order of the modules
+  "modules-left": [
+    "temperature",
+    "cpu",
+    "memory",
+    "custom/netusage"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "custom/kubernetes",
+    "custom/mpv",
+    "pulseaudio",
+    "network",
+    "backlight",
+    "battery",
+    "niri/language",
+    "tray",
+    "custom/darkman",
+    "custom/lock"
+  ],
+  "custom/darkman": {
+    "format": "{}",
+    "exec": "sh -c \"darkman get | grep -q 'dark' && echo '🌙' || echo '☀️'\"",
+    "interval": 1,
+    "on-click": "darkman toggle",
+    "tooltip": false
+  },
+  "custom/netusage": {
+    "format": "{}",
+    "interval": 1,
+    "exec": "bash -lc 'iface=wlan0; st=/run/user/$(id -u)/.netusage_$iface; rx=$(cat /sys/class/net/$iface/statistics/rx_bytes 2>/dev/null) || { echo \"no iface\"; exit 0; }; tx=$(cat /sys/class/net/$iface/statistics/tx_bytes 2>/dev/null) || { echo \"no iface\"; exit 0; }; now=$(date +%s); if [ -r \"$st\" ]; then read pt prx ptx < \"$st\"; dt=$((now-pt)); [ $dt -lt 1 ] && dt=1; dr=$((rx-prx)); du=$((tx-ptx)); [ $dr -lt 0 ] && dr=0; [ $du -lt 0 ] && du=0; down=$((dr/dt)); up=$((du/dt)); else down=0; up=0; fi; printf \"%s %s %s\\n\" \"$now\" \"$rx\" \"$tx\" > \"$st\"; printf \"NET ⇣%dKB/s ⇡%dKB/s\\n\" $((down/1024)) $((up/1024))'"
+  },
+  "memory": {
+    "interval": 1,
+    "format": "{icon}",
+    "format-icons": [
+      "<span color='#69ff94'>▁</span>", // low
+      "<span color='#2aa9ff'>▂</span>",
+      "<span color='#f8f82'>▃</span>",
+      "<span color='#f8f82'>▄</span>",
+      "<span color='#ffffa5'>▅</span>",
+      "<span color='#ffffa5'>▆</span>",
+      "<span color='#ff9977'>▇</span>",
+      "<span color='#dd532e'>█</span>" // high
+    ]
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}{icon12}{icon13}{icon14}{icon15}",
+    "format-icons": [
+      "<span color='#69ff94'>▁</span>", // green
+      "<span color='#2aa9ff'>▂</span>", // blue
+      "<span color='#f8f8f2'>▃</span>", // white
+      "<span color='#f8f8f2'>▄</span>", // white
+      "<span color='#ffffa5'>▅</span>", // yellow
+      "<span color='#ffffa5'>▆</span>", // yellow
+      "<span color='#ff9977'>▇</span>", // orange
+      "<span color='#dd532e'>█</span>" // red
+    ]
+  },
+  "custom/mpv": {
+    "format": "{}",
+    "interval": 2,
+    "exec": "bash -lc 'S=/tmp/mpvsocket; if [ -S \"$S\" ]; then printf %s\\\\n \"{\\\"command\\\": [\\\"get_property\\\", \\\"media-title\\\"]}\" | socat - \"$S\" | jq -r .data | sed -e \"s/^null$//\"; else echo \"\"; fi'"
+  },
+  "custom/kubernetes": {
+    "exec": "kubectl config current-context",
+    "interval": 3,
+    "tooltip": true
+  },
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": ""
+    },
+  },
+  "tray": {
+    "icon-size": 12,
+    "spacing": 10
+  },
+  "custom/music": {
+    "format": "  {}",
+    "escape": true,
+    "interval": 5,
+    "tooltip": false,
+    "exec": "playerctl metadata --format='{{ title }}'",
+    "on-click": "playerctl play-pause",
+    "max-length": 50
+  },
+  "clock": {
+    "timezone": "Europe/Berlin",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "  {:%H:%M %a %h %d}"
+  },
+  "backlight": {
+    "device": "amdgpu_bl1",
+    "format": "{icon} {percent}%",
+    "format-alt": "{icon}",
+    "tooltip": false,
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "battery": {
+    "interval": 30,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon}",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon} {volume}%",
+    "format-muted": " ",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+  },
+  "custom/lock": {
+    "tooltip": false,
+    "on-click": "swaylock &",
+    "format": " ",
+  },
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "wlogout &",
+    "format": "⏻ "
+  },
+  "niri/language": {
+    "format": "  {short}",
+    "on-click": "niri msg action switch-layout next",
+  },
+  "network": {
+    "interface": "wlan0",
+    "format": "{ifname}",
+    "format-disconnected": "",
+    "format-wifi": " ",
+    "format-alt": "  {essid}",
+    "tooltip-format": "{signalStrength}%",
+    "tooltip-format-wifi": "{essid} {signalStrength}%",
+    "tooltip-format-disconnected": "No Connection",
+  }
+}
