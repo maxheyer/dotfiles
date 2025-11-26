@@ -29,8 +29,7 @@ window#waybar {
 #privacy,
 #idle_inhibitor,
 #custom-launcher,
-#custom-lock,
-#custom-darkman {
+#custom-lock {
   margin-top: 0px;
   margin-left: 0px;
   padding-left: 10px;
@@ -55,8 +54,7 @@ window#waybar {
 #clock:hover,
 #disk:hover,
 #custom-launcher:hover,
-#custom-lock:hover,
-#custom-darkman:hover {
+#custom-lock:hover {
   color: #292c3c;
   background: #bd93f9;
 }

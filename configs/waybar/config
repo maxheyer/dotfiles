@@ -1,6 +1,6 @@
 {
   "layer": "top", // Waybar at top layer
-  "position": "top", // Waybar position (top|bottom|left|right)
+  "position": "bottom", // Waybar position (top|bottom|left|right)
   // "width": 1280, // Waybar width
   // Choose the order of the modules
   "modules-left": [
@@ -21,20 +21,15 @@
     "battery",
     "niri/language",
     "tray",
-    "custom/darkman",
     "custom/lock"
   ],
-  "custom/darkman": {
-    "format": "{}",
-    "exec": "sh -c \"darkman get | grep -q 'dark' && echo '🌙' || echo '☀️'\"",
-    "interval": 1,
-    "on-click": "darkman toggle",
-    "tooltip": false
+  "temperature": {
+    "thermal-zone": 3
   },
   "custom/netusage": {
     "format": "{}",
     "interval": 1,
-    "exec": "bash -lc 'iface=wlan0; st=/run/user/$(id -u)/.netusage_$iface; rx=$(cat /sys/class/net/$iface/statistics/rx_bytes 2>/dev/null) || { echo \"no iface\"; exit 0; }; tx=$(cat /sys/class/net/$iface/statistics/tx_bytes 2>/dev/null) || { echo \"no iface\"; exit 0; }; now=$(date +%s); if [ -r \"$st\" ]; then read pt prx ptx < \"$st\"; dt=$((now-pt)); [ $dt -lt 1 ] && dt=1; dr=$((rx-prx)); du=$((tx-ptx)); [ $dr -lt 0 ] && dr=0; [ $du -lt 0 ] && du=0; down=$((dr/dt)); up=$((du/dt)); else down=0; up=0; fi; printf \"%s %s %s\\n\" \"$now\" \"$rx\" \"$tx\" > \"$st\"; printf \"NET ⇣%dKB/s ⇡%dKB/s\\n\" $((down/1024)) $((up/1024))'"
+    "exec": "bash -lc 'iface=enp195s0f0u1; st=/run/user/$(id -u)/.netusage_$iface; rx=$(cat /sys/class/net/$iface/statistics/rx_bytes 2>/dev/null) || { echo \"no iface\"; exit 0; }; tx=$(cat /sys/class/net/$iface/statistics/tx_bytes 2>/dev/null) || { echo \"no iface\"; exit 0; }; now=$(date +%s); if [ -r \"$st\" ]; then read pt prx ptx < \"$st\"; dt=$((now-pt)); [ $dt -lt 1 ] && dt=1; dr=$((rx-prx)); du=$((tx-ptx)); [ $dr -lt 0 ] && dr=0; [ $du -lt 0 ] && du=0; down=$((dr/dt)); up=$((du/dt)); else down=0; up=0; fi; printf \"%s %s %s\\n\" \"$now\" \"$rx\" \"$tx\" > \"$st\"; printf \"NET ⇣%dKB/s ⇡%dKB/s\\n\" $((down/1024)) $((up/1024))'"
   },
   "memory": {
     "interval": 1,
