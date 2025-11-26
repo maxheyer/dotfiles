@@ -173,7 +173,12 @@ return {
       },
     },
   },
-  { "ficcdaf/ashen.nvim" },
+  { 'jinh0/eyeliner.nvim' },
+  { "ficcdaf/ashen.nvim",
+    opts = {
+      transparent = true,
+    },
+  },
   {
     "LazyVim/LazyVim",
     opts = {
