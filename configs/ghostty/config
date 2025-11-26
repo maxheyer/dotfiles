@@ -7,6 +7,7 @@ font-thicken = true
 
 window-inherit-font-size = true
 unfocused-split-opacity = 1.0
+background-opacity = 1.0
 
 confirm-close-surface = false
 
