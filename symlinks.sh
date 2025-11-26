@@ -25,3 +25,29 @@ for item in "$SOURCE"/*; do
 	echo "Linking $item -> $dest"
 	ln -s "$item" "$dest"
 done
+
+WALLPAPER_SOURCE="$HOME/.dotfiles/wallpapers"
+WALLPAPER_TARGET="$HOME/Pictures/Wallpapers"
+mkdir -p "$WALLPAPER_TARGET"
+
+if [ -d "$WALLPAPER_SOURCE" ]; then
+	for wallpaper in "$WALLPAPER_SOURCE"/*; do
+		[ -e "$wallpaper" ] || continue
+		name=$(basename "$wallpaper")
+		dest="$WALLPAPER_TARGET/$name"
+
+		# Remove existing symlink or file if it exists
+		if [ -L "$dest" ]; then
+			echo "Removing old wallpaper symlink: $dest"
+			rm "$dest"
+		elif [ -f "$dest" ]; then
+			echo "Backing up existing wallpaper: $dest -> ${dest}.backup"
+			mv "$dest" "${dest}.backup"
+		fi
+
+		echo "Linking wallpaper $wallpaper -> $dest"
+		ln -s "$wallpaper" "$dest"
+	done
+else
+	echo "No wallpapers directory found at $WALLPAPER_SOURCE"
+fi
