@@ -40,9 +40,19 @@ switch-events {
 // You will have to remove "/-" and edit it before it takes effect.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 
-output "DP-3" {
+output "DP-2" {
     mode "2560x1440@144.006" // Set resolution and refresh rate
     scale 1 // No scaling (use 2 for HiDPI)
+}
+
+output "DP-1" {
+    mode "2560x1440@144.006" // Set resolution and refresh rate
+    scale 1 // No scaling (use 2 for HiDPI)
+}
+
+output "eDP-1" {
+    mode "2880x1920@120.000" // Set resolution and refresh rate
+    scale 1.5 // No scaling (use 2 for HiDPI)
 }
 
 // ────────────── Keybindings ──────────────
@@ -54,8 +64,8 @@ binds {
     // ─── Applications ───
     MOD+RETURN                          hotkey-overlay-title="Open Terminal: Ghostty" { spawn-sh "ghostty"; }
     MOD+SPACE                           hotkey-overlay-title="Open App Launcher: fuzzel" { spawn-sh "fuzzel"; }
-    MOD+B                               hotkey-overlay-title="Open Browser: Firefox" { spawn-sh "firefox"; }
-    MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
+    MOD+B                               hotkey-overlay-title="Open Browser" { spawn-sh "vivaldi"; }
+    // MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
 
     // Please choose your own file manager
     MOD+E                             hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
@@ -174,7 +184,7 @@ binds {
 
     // ─── Exit / Power ───
     CTRL+ALT+DELETE                     { quit; } // Also quits Niri
-    MOD+SHIFT+P                         { power-off-monitors; } // Turn off screens (useful for OLED or privacy)
+    // MOD+SHIFT+P                         { power-off-monitors; } // Turn off screens (useful for OLED or privacy)
     MOD+O                               repeat=false { toggle-overview; }
 }
 
@@ -182,9 +192,7 @@ binds {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
 
     spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
-    spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
-    spawn-sh-at-startup "swww img ~/Pictures/Wallpapers/sunset_209-wallpaper-3840x2160.png" // Set wallpaper
-    spawn-sh-at-startup "waybar" // Launch waybar
+    spawn-sh-at-startup "nm-applet"
 
     prefer-no-csd // Disable program decorations
     screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d_%H-%M-%S.png"
@@ -193,7 +201,7 @@ binds {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 
     layout {
-        gaps 0 // Gap between windows
+        gaps 50 // Gap between windows
         center-focused-column "never" // Don’t auto-center focused column
 
         preset-column-widths {
@@ -203,11 +211,12 @@ binds {
         }
 
         focus-ring {
-          off
+          width 1
+          active-color "#FC531DFF"
         }
 
         border {
-          width 1
+          width 0
           active-color "#cba6f7"
           inactive-color "#6c7086"
         }
@@ -262,7 +271,7 @@ binds {
     }
 
     window-rule {
-        match app-id=r#"ghostty$"#
+      match app-id=r#"ghostty$"#
 
       opacity 1.0
     }
